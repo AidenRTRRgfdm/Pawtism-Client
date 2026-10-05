@@ -1,0 +1,5 @@
+Fabric API 0.161.0+26.2
+License: Apache-2.0
+Release: https://modrinth.com/mod/fabric-api/version/ewUK83HI
+Source: https://github.com/FabricMC/fabric
+The library binary is distributed unmodified and retains its original attribution.
