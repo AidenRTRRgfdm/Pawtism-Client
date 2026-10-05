@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "package": "dev.pawtism.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CameraZoomMixin",
+    "MouseZoomMixin",
+    "CrosshairMixin",
+    "PawtismShulkerItemStackMixin",
+    "PlayerSkinLayersMixin",
+    "ModelPartCubesAccessor",
+    "FirstPersonSkinLayersMixin",
+    "ItemPhysicsMixin",
+    "ItemPhysicsStateMixin",
+    "TextureManagerSkinCacheMixin",
+    "CombatMouseMixin",
+    "CombatAttackMixin",
+    "CombatDamageMixin",
+    "CombatHurtCameraMixin",
+    "CombatFireMixin",
+    "CombatHeldItemMixin",
+    "PawtismQolDropMixin",
+    "PawtismQolChatMixin",
+    "PawtismQolHudMixin",
+    "PawtismQolToastMixin",
+    "PawtismQolWeatherMixin",
+    "PawtismQolSkyMixin",
+    "PawtismQolConnectMixin",
+    "PawtismQolDisconnectedMixin",
+    "PawtismQolDropKeyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

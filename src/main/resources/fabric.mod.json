@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "pawtism",
+  "version": "1.1.0+26.2",
+  "name": "Pawtism Client",
+  "description": "A simple custom client for zoom, HUDs, waypoints, and visual quality of life.",
+  "authors": [
+    "Pawtism"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.pawtism.client.PawtismClient"
+    ],
+    "modmenu": [
+      "dev.pawtism.client.PawtismModMenu"
+    ]
+  },
+  "mixins": [
+    "pawtism.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*",
+    "malilib": ">=0.29.6",
+    "modmenu": ">=20.0.3"
+  }
+}
