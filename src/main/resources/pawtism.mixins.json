@@ -47,7 +47,8 @@
     "XpMalilibDropdownMixin",
     "XpModMenuListMixin",
     "XpModMenuDescriptionMixin",
-    "XpModMenuBadgeMixin"
+    "XpModMenuBadgeMixin",
+    "XpMalilibTooltipMixin"
   ],
   "injectors": {
     "defaultRequire": 1
