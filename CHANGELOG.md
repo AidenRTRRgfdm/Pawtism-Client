@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0 — Minecraft 26.2
+## 1.2.0 for Minecraft 26.2
 
 ### XP interface
 
@@ -14,7 +14,7 @@
 
 Pawtism now has **50 feature toggles** and **22 movable HUD panels**. Existing modules, library requirements, keybinds, saved settings and waypoints remain available.
 
-## 1.1.0 — Minecraft 26.2
+## 1.1.0 for Minecraft 26.2
 
 ### Modules
 
