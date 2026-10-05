@@ -27,7 +27,27 @@
     "PawtismQolSkyMixin",
     "PawtismQolConnectMixin",
     "PawtismQolDisconnectedMixin",
-    "PawtismQolDropKeyMixin"
+    "PawtismQolDropKeyMixin",
+    "XpGuiMixin",
+    "XpTitleNotificationsAccessor",
+    "XpScreenMixin",
+    "XpButtonMixin",
+    "XpSliderMixin",
+    "XpEditBoxMixin",
+    "XpTextMixin",
+    "XpCheckboxMixin",
+    "XpListMixin",
+    "XpScrollbarMixin",
+    "XpTooltipMixin",
+    "XpContainerMixin",
+    "XpContainerTextureMixin",
+    "XpCollectorShadowMixin",
+    "XpMalilibButtonMixin",
+    "XpMalilibSliderMixin",
+    "XpMalilibDropdownMixin",
+    "XpModMenuListMixin",
+    "XpModMenuDescriptionMixin",
+    "XpModMenuBadgeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
