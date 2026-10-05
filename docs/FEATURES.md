@@ -1,6 +1,6 @@
 # Feature reference
 
-Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
+Pawtism Client **1.3.0** for Minecraft **26.2** has **51 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
 
 ## Core (11 features)
 
@@ -84,9 +84,10 @@ Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** acros
 - The default limit is three automatic death markers; manually saved waypoints are separate.
 - Reconnect starts only after clicking its button and makes one connection attempt.
 
-## UI (1 feature)
+## UI (2 features)
 
 - **XP interface:** an XP-style desktop, blue window frames and classic controls. Enabled by default.
+- **Dark mode:** darker XP scenery and panels with lighter labels. Off by default; used while XP interface is enabled.
 
 The title screen has a sky-and-hills desktop background drawn from colored shapes, a Pawtism window and a taskbar. **Launch Minecraft**, **Multiplayer** and the window's original Minecraft buttons keep their normal actions. **Modules** and **start** open Pawtism's module browser.
 
@@ -98,7 +99,9 @@ The theme also styles buttons, checkboxes, slider tracks and handles, editable t
 - In a world, press **Right Shift**, choose **UI**, and toggle **XP interface**.
 - From the ordinary title screen, open **Mods → Pawtism Client → settings**, choose **UI**, and turn **XP interface** on.
 
-Turning the theme off restores the ordinary interface appearance. The setting is stored in the same Pawtism configuration as your other preferences. The theme adds no HUD panel; the total remains **22**.
+To switch the palette, enable **XP interface**, then press **Right Shift → UI → Dark mode**. Light remains the default. Changes apply immediately without a restart. Dark mode covers the title desktop, native options and lists, text fields, buttons, tooltips, container panels, module browser, waypoint editor, detailed settings and Mod Menu.
+
+Turning XP interface off restores the vanilla appearance and retains the saved dark preference. Enabling XP again uses that preference. Both settings are stored in the same Pawtism configuration as your other preferences. They add no HUD panel; the total remains **22**.
 
 ## HUD layout and settings
 

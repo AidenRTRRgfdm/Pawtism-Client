@@ -24,7 +24,7 @@ Open Pawtism with **Right Shift**, or use its configuration button in **Mod Menu
 
 ## Desktop and theme
 
-The **XP interface** is enabled by default in version 1.2.0.
+The **XP interface** is enabled by default in version 1.3.0.
 
 - **Launch Minecraft** opens Minecraft's singleplayer menu.
 - **Multiplayer** opens Minecraft's multiplayer menu.
@@ -32,6 +32,8 @@ The **XP interface** is enabled by default in version 1.2.0.
 - **Classic menu** disables the theme and opens the ordinary title screen.
 
 To change the theme while playing, press **Right Shift**, choose **UI**, and toggle **XP interface**. To turn it back on from the ordinary title screen, use **Mods → Pawtism Client → settings → UI**.
+
+**Dark mode** is off by default, keeping the light XP palette. Enable **XP interface**, then press **Right Shift → UI → Dark mode** to switch palettes. Changes apply immediately without restarting. The preference is saved and retained while XP interface is off; it takes effect when XP is enabled again. Turning **XP interface** off restores the vanilla appearance.
 
 The styled controls use Minecraft's normal mouse, keyboard, focus and text-editing behavior. Back, Done, Escape and inventory interactions retain their usual actions.
 
