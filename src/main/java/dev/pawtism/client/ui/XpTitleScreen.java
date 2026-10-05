@@ -2,6 +2,7 @@ package dev.pawtism.client.ui;
 
 import com.mojang.realmsclient.gui.screens.RealmsNotificationsScreen;
 import dev.pawtism.client.ModuleScreen;
+import dev.pawtism.client.PawtismClient;
 import dev.pawtism.client.PawtismConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +111,7 @@ public final class XpTitleScreen extends TitleScreen {
         XpTheme.desktop(graphics, font, width, height);
         XpDesktopLayout.Rect window = layout.window();
         XpTheme.frame(graphics, font, window.x(), window.y(), window.width(), window.height(), "Pawtism Client", false);
-        graphics.text(font, "Client 1.2.0 · Minecraft 26.2", layout.contentX(), window.y() + 29, 0xff29364c, false);
+        graphics.text(font, "Client " + PawtismClient.VERSION + " · Minecraft 26.2", layout.contentX(), window.y() + 29, XpTheme.text(), false);
         XpTheme.taskbar(graphics, font, width, height);
         // TitleScreen adds its widgets as renderable children. Keep the same instances for input and narration.
         for (GuiEventListener child : children()) {
@@ -163,11 +164,11 @@ public final class XpTitleScreen extends TitleScreen {
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
             if (target != null) active = target.isActive();
             if (isHoveredOrFocused() && active) {
-                graphics.fill(getX(), getY(), getX() + width, getY() + height, 0x60316fc9);
-                outline(graphics, getX(), getY(), width, height, 0xffd8e8ff);
+                graphics.fill(getX(), getY(), getX() + width, getY() + height, XpTheme.color(0x60316fc9, 0x904f76a8));
+                outline(graphics, getX(), getY(), width, height, XpTheme.color(0xffd8e8ff, 0xffa8c7f0));
             }
             drawIcon(graphics, getX() + width / 2 - 12, getY() + 2, icon, active);
-            int color = active ? 0xffffffff : 0xffcad5dc;
+            int color = active ? XpTheme.color(0xffffffff, 0xffedf4ff) : XpTheme.color(0xffcad5dc, 0xff9caec6);
             if (label.equals("Launch Minecraft")) {
                 graphics.centeredText(font, "Launch", getX() + width / 2, getY() + 29, color);
                 graphics.centeredText(font, "Minecraft", getX() + width / 2, getY() + 39, color);
@@ -180,7 +181,7 @@ public final class XpTitleScreen extends TitleScreen {
             super(rect.x(), rect.y(), rect.width(), rect.height(), Component.literal("start"), b -> openModules(), DEFAULT_NARRATION);
         }
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
-            if (isHoveredOrFocused()) outline(graphics, getX() + 2, getY() + 2, width - 4, height - 4, 0xffe9ffd7);
+            if (isHoveredOrFocused()) outline(graphics, getX() + 2, getY() + 2, width - 4, height - 4, XpTheme.color(0xffe9ffd7, 0xffb1d5fb));
         }
     }
 
@@ -190,32 +191,32 @@ public final class XpTitleScreen extends TitleScreen {
     }
 
     private static void drawIcon(GuiGraphicsExtractor graphics, int x, int y, Icon icon, boolean active) {
-        int dark = active ? 0xff28465a : 0xff7c8991;
+        int dark = active ? XpTheme.color(0xff28465a, 0xff99b7d7) : XpTheme.color(0xff7c8991, 0xff58697f);
         if (icon == Icon.FOLDER) {
-            graphics.fill(x + 2, y + 5, x + 12, y + 9, 0xffffe183);
-            graphics.fill(x + 1, y + 8, x + 24, y + 24, 0xffb98323);
-            graphics.fill(x + 2, y + 9, x + 23, y + 22, 0xffffd764);
-            graphics.fill(x + 3, y + 10, x + 22, y + 12, 0xffffedaa);
-            graphics.fill(x + 6, y + 15, x + 9, y + 18, 0xffb37d35);
-            graphics.fill(x + 11, y + 15, x + 14, y + 18, 0xffb37d35);
-            graphics.fill(x + 16, y + 15, x + 19, y + 18, 0xffb37d35);
+            graphics.fill(x + 2, y + 5, x + 12, y + 9, XpTheme.color(0xffffe183, 0xffedcb78));
+            graphics.fill(x + 1, y + 8, x + 24, y + 24, XpTheme.color(0xffb98323, 0xff8f6329));
+            graphics.fill(x + 2, y + 9, x + 23, y + 22, XpTheme.color(0xffffd764, 0xffd9ad55));
+            graphics.fill(x + 3, y + 10, x + 22, y + 12, XpTheme.color(0xffffedaa, 0xfff2d995));
+            graphics.fill(x + 6, y + 15, x + 9, y + 18, XpTheme.color(0xffb37d35, 0xff705124));
+            graphics.fill(x + 11, y + 15, x + 14, y + 18, XpTheme.color(0xffb37d35, 0xff705124));
+            graphics.fill(x + 16, y + 15, x + 19, y + 18, XpTheme.color(0xffb37d35, 0xff705124));
         } else if (icon == Icon.NETWORK) {
             graphics.fill(x + 5, y + 3, x + 20, y + 19, dark);
             graphics.fill(x + 3, y + 6, x + 22, y + 16, dark);
-            graphics.fill(x + 5, y + 5, x + 20, y + 17, 0xff74c5ef);
-            graphics.fill(x + 11, y + 4, x + 13, y + 19, 0xffd8f2ff);
-            graphics.fill(x + 5, y + 10, x + 20, y + 12, 0xffd8f2ff);
+            graphics.fill(x + 5, y + 5, x + 20, y + 17, XpTheme.color(0xff74c5ef, 0xff659fce));
+            graphics.fill(x + 11, y + 4, x + 13, y + 19, XpTheme.color(0xffd8f2ff, 0xffc8e2fc));
+            graphics.fill(x + 5, y + 10, x + 20, y + 12, XpTheme.color(0xffd8f2ff, 0xffc8e2fc));
             graphics.fill(x + 11, y + 19, x + 13, y + 23, dark);
             graphics.fill(x + 2, y + 23, x + 23, y + 25, dark);
-            graphics.fill(x + 2, y + 21, x + 5, y + 27, 0xffdde7ed);
-            graphics.fill(x + 20, y + 21, x + 23, y + 27, 0xffdde7ed);
+            graphics.fill(x + 2, y + 21, x + 5, y + 27, XpTheme.color(0xffdde7ed, 0xffadc0d7));
+            graphics.fill(x + 20, y + 21, x + 23, y + 27, XpTheme.color(0xffdde7ed, 0xffadc0d7));
         } else {
             graphics.fill(x, y + 2, x + 25, y + 19, dark);
-            graphics.fill(x + 2, y + 4, x + 23, y + 17, 0xffdce5e9);
-            graphics.fill(x + 4, y + 6, x + 21, y + 15, 0xff59a9dd);
-            graphics.fill(x + 4, y + 13, x + 21, y + 15, 0xff4eae5a);
+            graphics.fill(x + 2, y + 4, x + 23, y + 17, XpTheme.color(0xffdce5e9, 0xffbac9dc));
+            graphics.fill(x + 4, y + 6, x + 21, y + 15, XpTheme.color(0xff59a9dd, 0xff3f76a2));
+            graphics.fill(x + 4, y + 13, x + 21, y + 15, XpTheme.color(0xff4eae5a, 0xff4e885c));
             graphics.fill(x + 11, y + 19, x + 14, y + 23, dark);
-            graphics.fill(x + 5, y + 23, x + 20, y + 25, 0xffcbd6dc);
+            graphics.fill(x + 5, y + 23, x + 20, y + 25, XpTheme.color(0xffcbd6dc, 0xff93aac7));
         }
     }
 }
