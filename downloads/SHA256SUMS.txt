@@ -1,0 +1,2 @@
+a356f8616a39d0e0a8bb58c2a835e133a31ca86ebf6caac7e4665effc1dad76b  PawtismClient-1.1.0-26.2.zip
+f1c126c89c22ead12790597ecc996963a8be8762bf56a257809d63bd81c41bcf  pawtism-client-1.1.0+26.2.jar
