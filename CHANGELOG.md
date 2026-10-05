@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.0 for Minecraft 26.2
+
+### Dark mode
+
+- Added an optional **Dark mode** module in the **UI** category, off by default so the light palette remains the default.
+- Added dark desktop scenery, window bodies, controls, lists, text fields, tooltips and inventory panels with lighter labels.
+- Applied the dark palette to the module browser, waypoint editor, detailed settings and Mod Menu.
+- Palette changes apply immediately without restarting.
+- Saved the dark preference independently of XP interface. Switching XP off restores the vanilla appearance and retains the palette preference for the next time XP is enabled.
+
+Pawtism now has **51 feature toggles** and **22 movable HUD panels**. Required library versions and existing module controls are unchanged.
+
 ## 1.2.0 for Minecraft 26.2
 
 ### XP interface

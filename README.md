@@ -2,21 +2,21 @@
 
 A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, waypoints and visual quality-of-life features.
 
-**Version 1.2.0** adds an XP-style desktop and interface to **50 feature toggles**, a searchable module browser and **22 movable HUD panels**.
+**Version 1.3.0** adds optional **Dark mode** to the XP interface. Pawtism has **51 feature toggles**, a searchable module browser and **22 movable HUD panels**.
 
 ## Screenshots
 
-![Pawtism XP desktop](docs/images/desktop.png)
+![Pawtism XP desktop in Dark mode](docs/images/desktop.png)
 
-![Pawtism module browser](docs/images/modules.png)
+![Pawtism module browser in Dark mode](docs/images/modules.png)
 
 ## Downloads
 
 This repository includes Java source and precompiled downloads. Use the compiled release to install.
 
-- [Pawtism Client 1.2.0 JAR](downloads/pawtism-client-1.2.0+26.2.jar)
-- [Install bundle with all four libraries](downloads/PawtismClient-1.2.0-26.2.zip)
-- [Source archive](downloads/PawtismClient-1.2.0-26.2-source.zip)
+- [Pawtism Client 1.3.0 JAR](downloads/pawtism-client-1.3.0+26.2.jar)
+- [Install bundle with all four libraries](downloads/PawtismClient-1.3.0-26.2.zip)
+- [Source archive](downloads/PawtismClient-1.3.0-26.2-source.zip)
 - [GitHub releases](https://github.com/AidenRTRRgfdm/Pawtism-Client/releases)
 
 The install bundle contains Pawtism and its four required libraries. Checksums are included with the downloads.
@@ -41,7 +41,7 @@ Pawtism runs on your client. Servers do not need to install it.
 
 ### Required libraries
 
-These versions match Pawtism 1.2.0 for Minecraft 26.2.
+These versions match Pawtism 1.3.0 for Minecraft 26.2.
 
 | Library | Version |
 | --- | --- |
@@ -65,7 +65,7 @@ Text Placeholder API is required by this version of Mod Menu.
 
 You can change Pawtism's keybinds in Minecraft Controls. The settings button in **Mods → Pawtism Client** opens the same module browser.
 
-## XP interface
+## XP interface and Dark mode
 
 The XP interface is enabled by default. The title screen becomes a desktop with an original sky-and-hills background, a blue Pawtism window and a taskbar. The background and window chrome use colored shapes and require no extra resource pack.
 
@@ -76,7 +76,9 @@ Menus also use classic button, checkbox, slider, text-field, list, scrollbar, to
 - While playing, press **Right Shift**, choose **UI**, and switch **XP interface** on or off.
 - From the classic title screen, use **Mods → Pawtism Client → settings**, then **UI**, to enable it again.
 
-The theme setting is saved with your other Pawtism preferences.
+**Dark mode** is off by default, so the light XP palette remains the default. With **XP interface** enabled, use **Right Shift → UI → Dark mode** for charcoal window bodies, darker desktop scenery and lighter labels. The palette changes immediately without a restart. It applies to the desktop, native menus, module browser, waypoint editor, detailed settings, Mod Menu, tooltips and inventory panels.
+
+The XP and dark preferences are saved with your other Pawtism settings. Turning **XP interface** off restores the vanilla appearance and keeps your dark preference for the next time you enable XP.
 
 ## Features
 
@@ -111,7 +113,7 @@ The theme setting is saved with your other Pawtism preferences.
 - Cosmetic sky time and local clear weather
 - Optional hiding of scoreboards, boss bars, titles and toast cards
 
-The **UI** category contains the XP interface toggle. See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
+The **UI** category contains the XP interface and Dark mode toggles. See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
 
 ## Arrange your HUD
 
