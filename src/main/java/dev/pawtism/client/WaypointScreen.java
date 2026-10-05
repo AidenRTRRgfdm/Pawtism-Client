@@ -1,5 +1,6 @@
 package dev.pawtism.client;
 
+import dev.pawtism.client.ui.XpTheme;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
@@ -123,28 +124,50 @@ public final class WaypointScreen extends Screen {
 
     private static String coord(double value) { return String.format(Locale.ROOT, "%.1f", value); }
 
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+        if (!XpTheme.enabled()) super.extractBackground(graphics, mouseX, mouseY, delta);
+    }
+
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
-        graphics.fill(0, 0, width, height, 0xe012101b);
-        graphics.fill(left - 8, 22, left + panelWidth + 8, height - 24, 0xdc1e1828);
-        graphics.centeredText(font, title, width / 2, 28, PawtismConfig.ACCENT.getIntegerValue());
-        graphics.text(font, "X", x.getX(), 68, 0xffbcb6c6);
-        graphics.text(font, "Y", y.getX(), 68, 0xffbcb6c6);
-        graphics.text(font, "Z", z.getX(), 68, 0xffbcb6c6);
-        graphics.text(font, "Color", color.getX(), 68, 0xffbcb6c6);
-        graphics.text(font, "Saved locations · " + WaypointManager.dimension().replace("minecraft:", ""), left, 138, 0xffbcb6c6);
+        boolean xp = XpTheme.enabled();
+        if (xp) {
+            if (minecraft.level == null) XpTheme.desktop(graphics, font, width, height);
+            else graphics.fill(0, 0, width, height, 0x58000000);
+            XpTheme.frame(graphics, font, left - 8, 22, panelWidth + 16, height - 46, "Pawtism — Waypoints", false);
+            XpTheme.panel(graphics, left - 2, 149, panelWidth + 4, rows * 24 + 4);
+            graphics.fill(left - 1, 150, left + panelWidth + 1, 152 + rows * 24, 0xfffefefe);
+        } else {
+            graphics.fill(0, 0, width, height, 0xe012101b);
+            graphics.fill(left - 8, 22, left + panelWidth + 8, height - 24, 0xdc1e1828);
+            graphics.centeredText(font, title, width / 2, 28, PawtismConfig.ACCENT.getIntegerValue());
+        }
+        int labelColor = xp ? XpTheme.DARK_TEXT : 0xffbcb6c6;
+        int mutedColor = xp ? XpTheme.MUTED_TEXT : 0xffa39bae;
+        graphics.text(font, "X", x.getX(), 68, labelColor);
+        graphics.text(font, "Y", y.getX(), 68, labelColor);
+        graphics.text(font, "Z", z.getX(), 68, labelColor);
+        graphics.text(font, "Color", color.getX(), 68, labelColor);
+        graphics.text(font, "Saved locations · " + WaypointManager.dimension().replace("minecraft:", ""), left, 138, labelColor);
         List<Waypoint> points = WaypointManager.points();
         for (int i = page * rows; i < Math.min(points.size(), (page + 1) * rows); i++) {
             Waypoint p = points.get(i);
             int rowY = 153 + (i - page * rows) * 24;
-            String display = font.plainSubstrByWidth(p.name(), Math.max(30, panelWidth - 162));
-            graphics.text(font, display, left, rowY + 1, p.visible() ? p.color() : 0xff827b8c);
+            int textX = xp ? left + 7 : left;
+            int textWidth = Math.max(30, panelWidth - (xp ? 169 : 162));
+            String display = font.plainSubstrByWidth(p.name(), textWidth);
+            if (xp) graphics.fill(left + 1, rowY + 3, left + 4, rowY + 18, p.visible() ? p.color() : 0xffaca899);
+            graphics.text(font, display, textX, rowY + 1, xp ? (p.visible() ? XpTheme.DARK_TEXT : XpTheme.MUTED_TEXT) : (p.visible() ? p.color() : 0xff827b8c));
             graphics.text(font, font.plainSubstrByWidth(p.dimension().replace("minecraft:", "") + " · " + coord(p.x()) + ", " + coord(p.y()) + ", " + coord(p.z()),
-                    Math.max(30, panelWidth - 162)), left, rowY + 11, 0xffa39bae);
+                    textWidth), textX, rowY + 11, mutedColor);
         }
-        if (points.isEmpty()) graphics.text(font, "No locations yet. Save your current position above.", left, 160, 0xffa39bae);
+        if (points.isEmpty()) {
+            String emptyMessage = "No locations yet. Save your current position above.";
+            graphics.text(font, xp ? font.plainSubstrByWidth(emptyMessage, panelWidth - 4) : emptyMessage,
+                left + (xp ? 2 : 0), 160, mutedColor);
+        }
         String status = message.isEmpty() ? WaypointManager.error() : message;
-        if (!status.isEmpty()) graphics.text(font, font.plainSubstrByWidth(status, panelWidth), left, height - 68, 0xffffd394);
-        graphics.text(font, "Page " + (page + 1) + " · B toggles markers", left + 75, height - 45, 0xffbcb6c6);
+        if (!status.isEmpty()) graphics.text(font, font.plainSubstrByWidth(status, panelWidth), left, height - (xp ? 62 : 68), xp ? 0xff80510e : 0xffffd394);
+        graphics.text(font, "Page " + (page + 1) + " · B toggles markers", left + 75, height - 45, labelColor);
         super.extractRenderState(graphics, mouseX, mouseY, delta);
     }
 

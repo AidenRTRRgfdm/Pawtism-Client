@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public final class ModuleCatalog {
     public record Module(String category, ConfigBoolean option) {}
-    public static final List<String> CATEGORIES = List.of("All", "Core", "HUD", "PvP", "QoL");
+    public static final List<String> CATEGORIES = List.of("All", "Core", "HUD", "PvP", "QoL", "UI");
     private ModuleCatalog() {}
     public static List<IConfigBase> options(String category) {
         return switch (category) {
@@ -20,6 +20,7 @@ public final class ModuleCatalog {
             case "HUD" -> HudOptions.OPTIONS;
             case "PvP" -> CombatOptions.OPTIONS;
             case "QoL" -> QolOptions.OPTIONS;
+            case "UI" -> PawtismConfig.UI_OPTIONS;
             default -> PawtismConfig.OPTIONS;
         };
     }
