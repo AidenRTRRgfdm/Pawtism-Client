@@ -40,7 +40,8 @@ public final class PawtismConfig implements IConfigHandler {
     public static final ConfigBoolean SHULKER_TOOLTIP = bool("shulkerTooltip", "Shulker box preview", true, "Shows an inventory grid in the shulker box tooltip.");
     public static final ConfigBoolean PERFORMANCE_MODE = bool("performanceMode", "Performance preset", false, "Optional reversible video preset: fewer particles, no clouds or entity shadows, capped view distance. Restores previous settings when disabled.");
     public static final ConfigBoolean XP_THEME = bool("xpTheme", "XP interface", true, "A geometry-drawn desktop, blue window frames and classic controls throughout Minecraft. Disable for the vanilla interface.");
-    public static final List<IConfigBase> UI_OPTIONS = List.of(XP_THEME);
+    public static final ConfigBoolean XP_DARK_MODE = bool("xpDarkMode", "Dark mode", false, "Use charcoal windows and a night desktop while the XP interface is enabled. Changes apply immediately.");
+    public static final List<IConfigBase> UI_OPTIONS = List.of(XP_THEME, XP_DARK_MODE);
     public static final List<IConfigBase> CORE_OPTIONS = List.of(ZOOM, ZOOM_FACTOR, TOGGLE_SPRINT, HUD, ARMOR_HUD, CROSSHAIR, CROSSHAIR_SIZE, ACCENT, WAYPOINTS, SKIN_3D, ITEM_PHYSICS, SATURATION, SHULKER_TOOLTIP, PERFORMANCE_MODE);
     public static final List<IConfigBase> OPTIONS = java.util.stream.Stream.of(CORE_OPTIONS,
         dev.pawtism.client.hud.HudOptions.OPTIONS, dev.pawtism.client.combat.CombatOptions.OPTIONS,

@@ -61,9 +61,9 @@ public final class ModuleScreen extends Screen {
         boolean xp = XpTheme.enabled();
         if (xp) {
             if (minecraft.level == null) XpTheme.desktop(g, font, width, height);
-            else g.fill(0, 0, width, height, 0x58000000);
-            XpTheme.frame(g, font, 5, 3, width - 10, height - 6, "Pawtism Client — Modules", false);
-            g.text(font, "26.2 · " + ModuleCatalog.modules("All", "").size() + " original modules", 12, 29, XpTheme.MUTED_TEXT, false);
+            else g.fill(0, 0, width, height, XpTheme.color(0x58000000, 0x7808101d));
+            XpTheme.frame(g, font, 5, 3, width - 10, height - 6, "Pawtism Client: Modules", false);
+            g.text(font, "26.2 · " + ModuleCatalog.modules("All", "").size() + " original modules", 12, 29, XpTheme.mutedText(), false);
             XpTheme.panel(g, 8, 41, 102, Math.max(22, height - 76));
             XpTheme.panel(g, left - 4, 69, width - left - 8, Math.max(54, height - 139));
         } else {
@@ -78,20 +78,21 @@ public final class ModuleScreen extends Screen {
             int local = index - page * perPage, x = left + (local % columns) * cardWidth, y = 73 + (local / columns) * 55;
             if (xp) {
                 XpTheme.panel(g, x, y, cardWidth - 5, 50);
-                g.fill(x + 1, y + 1, x + cardWidth - 6, y + 49, 0xfffefefe);
-                g.fill(x + 1, y + 1, x + 3, y + 49, module.option().getBooleanValue() ? XpTheme.BLUE : 0xffaca899);
+                g.fill(x + 1, y + 1, x + cardWidth - 6, y + 49, XpTheme.content());
+                g.fill(x + 1, y + 1, x + 3, y + 49, module.option().getBooleanValue()
+                    ? XpTheme.color(XpTheme.BLUE, 0xff6da7ed) : XpTheme.color(0xffaca899, 0xff566171));
             } else {
                 g.fill(x, y, x + cardWidth - 5, y + 50, 0xff25202e);
                 g.fill(x, y, x + 2, y + 50, module.option().getBooleanValue() ? PawtismConfig.ACCENT.getIntegerValue() : 0xff61536d);
             }
             g.text(font, font.plainSubstrByWidth(module.option().getConfigGuiDisplayName(), cardWidth - 16), x + 7, y + 7,
-                xp ? XpTheme.DARK_TEXT : 0xfff2f2f7, !xp);
-            g.text(font, module.category(), x + 7, y + 31, xp ? XpTheme.MUTED_TEXT : 0xffa39bae, false);
+                xp ? XpTheme.text() : 0xfff2f2f7, !xp);
+            g.text(font, module.category(), x + 7, y + 31, xp ? XpTheme.mutedText() : 0xffa39bae, false);
         }
-        if (modules.isEmpty()) g.text(font, "No modules match your search.", left, 80, xp ? XpTheme.MUTED_TEXT : 0xffb8b8c6, !xp);
+        if (modules.isEmpty()) g.text(font, "No modules match your search.", left, 80, xp ? XpTheme.mutedText() : 0xffb8b8c6, !xp);
         boolean compactFooter = xp && width < 440;
         g.text(font, (page + 1) + " / " + Math.max(1, (modules.size() + perPage - 1) / perPage) + " · " + modules.size() + " modules",
-            compactFooter ? left : left + 68, height - (compactFooter ? 71 : 51), xp ? XpTheme.MUTED_TEXT : 0xffb8b8c6, !xp);
+            compactFooter ? left : left + 68, height - (compactFooter ? 71 : 51), xp ? XpTheme.mutedText() : 0xffb8b8c6, !xp);
         super.extractRenderState(g, mouseX, mouseY, delta);
     }
     @Override public void onClose() { PawtismConfig.INSTANCE.save(); minecraft.gui.setScreen(parent); }

@@ -22,7 +22,7 @@ public final class WaypointScreen extends Screen {
     private String message = "";
 
     public WaypointScreen(Screen parent) {
-        super(Component.literal("Pawtism — Waypoints"));
+        super(Component.literal("Pawtism: Waypoints"));
         this.parent = parent;
     }
 
@@ -132,17 +132,17 @@ public final class WaypointScreen extends Screen {
         boolean xp = XpTheme.enabled();
         if (xp) {
             if (minecraft.level == null) XpTheme.desktop(graphics, font, width, height);
-            else graphics.fill(0, 0, width, height, 0x58000000);
-            XpTheme.frame(graphics, font, left - 8, 22, panelWidth + 16, height - 46, "Pawtism — Waypoints", false);
+            else graphics.fill(0, 0, width, height, XpTheme.color(0x58000000, 0x7808101d));
+            XpTheme.frame(graphics, font, left - 8, 22, panelWidth + 16, height - 46, "Pawtism: Waypoints", false);
             XpTheme.panel(graphics, left - 2, 149, panelWidth + 4, rows * 24 + 4);
-            graphics.fill(left - 1, 150, left + panelWidth + 1, 152 + rows * 24, 0xfffefefe);
+            graphics.fill(left - 1, 150, left + panelWidth + 1, 152 + rows * 24, XpTheme.content());
         } else {
             graphics.fill(0, 0, width, height, 0xe012101b);
             graphics.fill(left - 8, 22, left + panelWidth + 8, height - 24, 0xdc1e1828);
             graphics.centeredText(font, title, width / 2, 28, PawtismConfig.ACCENT.getIntegerValue());
         }
-        int labelColor = xp ? XpTheme.DARK_TEXT : 0xffbcb6c6;
-        int mutedColor = xp ? XpTheme.MUTED_TEXT : 0xffa39bae;
+        int labelColor = xp ? XpTheme.text() : 0xffbcb6c6;
+        int mutedColor = xp ? XpTheme.mutedText() : 0xffa39bae;
         graphics.text(font, "X", x.getX(), 68, labelColor);
         graphics.text(font, "Y", y.getX(), 68, labelColor);
         graphics.text(font, "Z", z.getX(), 68, labelColor);
@@ -155,8 +155,8 @@ public final class WaypointScreen extends Screen {
             int textX = xp ? left + 7 : left;
             int textWidth = Math.max(30, panelWidth - (xp ? 169 : 162));
             String display = font.plainSubstrByWidth(p.name(), textWidth);
-            if (xp) graphics.fill(left + 1, rowY + 3, left + 4, rowY + 18, p.visible() ? p.color() : 0xffaca899);
-            graphics.text(font, display, textX, rowY + 1, xp ? (p.visible() ? XpTheme.DARK_TEXT : XpTheme.MUTED_TEXT) : (p.visible() ? p.color() : 0xff827b8c));
+            if (xp) graphics.fill(left + 1, rowY + 3, left + 4, rowY + 18, p.visible() ? p.color() : XpTheme.color(0xffaca899, 0xff566171));
+            graphics.text(font, display, textX, rowY + 1, xp ? (p.visible() ? XpTheme.text() : XpTheme.mutedText()) : (p.visible() ? p.color() : 0xff827b8c));
             graphics.text(font, font.plainSubstrByWidth(p.dimension().replace("minecraft:", "") + " · " + coord(p.x()) + ", " + coord(p.y()) + ", " + coord(p.z()),
                     textWidth), textX, rowY + 11, mutedColor);
         }
@@ -166,7 +166,7 @@ public final class WaypointScreen extends Screen {
                 left + (xp ? 2 : 0), 160, mutedColor);
         }
         String status = message.isEmpty() ? WaypointManager.error() : message;
-        if (!status.isEmpty()) graphics.text(font, font.plainSubstrByWidth(status, panelWidth), left, height - (xp ? 62 : 68), xp ? 0xff80510e : 0xffffd394);
+        if (!status.isEmpty()) graphics.text(font, font.plainSubstrByWidth(status, panelWidth), left, height - (xp ? 62 : 68), xp ? XpTheme.color(0xff80510e, 0xffffcf88) : 0xffffd394);
         graphics.text(font, "Page " + (page + 1) + " · B toggles markers", left + 75, height - 45, labelColor);
         super.extractRenderState(graphics, mouseX, mouseY, delta);
     }

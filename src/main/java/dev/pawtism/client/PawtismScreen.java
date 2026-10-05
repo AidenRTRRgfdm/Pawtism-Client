@@ -17,7 +17,7 @@ public final class PawtismScreen extends GuiConfigsBase {
     }
     private final List<fi.dy.masa.malilib.config.IConfigBase> options;
     public PawtismScreen(Screen parent, List<fi.dy.masa.malilib.config.IConfigBase> options) {
-        super(10, 42, "pawtism", parent, "Pawtism Client — Settings");
+        super(10, 42, "pawtism", parent, "Pawtism Client: Settings");
         this.options = options;
         // MaLiLib 0.29.6 accepts a parent argument but does not assign it in GuiConfigsBase.
         setParent(parent);
@@ -48,10 +48,10 @@ public final class PawtismScreen extends GuiConfigsBase {
             return;
         }
         GuiGraphicsExtractor graphics = context.getGuiGraphics();
-        graphics.fill(0, 0, width, height, XpTheme.BEIGE);
-        XpTheme.frame(graphics, font, 5, 3, width - 10, height - 6, "Pawtism Client — Settings", false);
+        graphics.fill(0, 0, width, height, XpTheme.body());
+        XpTheme.frame(graphics, font, 5, 3, width - 10, height - 6, "Pawtism Client: Settings", false);
         XpTheme.panel(graphics, 8, 40, width - 16, Math.max(24, height - 78));
-        graphics.fill(9, 41, width - 9, Math.max(65, height - 39), 0xfffefefe);
+        graphics.fill(9, 41, width - 9, Math.max(65, height - 39), XpTheme.content());
     }
     @Override protected void drawTitle(GuiContext context, int mouseX, int mouseY, float delta) {
         if (!XpTheme.enabled()) super.drawTitle(context, mouseX, mouseY, delta);
