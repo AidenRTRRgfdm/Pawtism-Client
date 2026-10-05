@@ -15,7 +15,7 @@ public final class HudEditorScreen extends Screen {
     private HudWidgets.Widget selected;
     private int offsetX, offsetY;
     private boolean dragging;
-    public HudEditorScreen(Screen parent) { super(Component.literal("Pawtism — HUD Editor")); this.parent = parent; }
+    public HudEditorScreen(Screen parent) { super(Component.literal("Pawtism: HUD Editor")); this.parent = parent; }
     @Override protected void init() {
         addRenderableWidget(Button.builder(Component.literal("Reset layout"), b -> HudWidgets.reset()).bounds(width / 2 - 104, height - 27, 100, 20).build());
         addRenderableWidget(Button.builder(Component.literal("Save & Done"), b -> onClose()).bounds(width / 2 + 4, height - 27, 100, 20).build());
@@ -23,26 +23,28 @@ public final class HudEditorScreen extends Screen {
     @Override public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {}
     @Override public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {
         boolean xp = XpTheme.enabled();
-        g.fill(0, 0, width, height, xp ? 0x30000000 : 0x5012101b);
+        g.fill(0, 0, width, height, xp ? XpTheme.color(0x30000000, 0x4808101d) : 0x5012101b);
         if (minecraft.player != null) HudWidgets.draw(g);
         for (HudWidgets.Widget widget : HudWidgets.widgets()) {
             if (!widget.enabled().getAsBoolean()) continue;
             HudWidgets.Rect r = HudWidgets.rect(widget, width, height);
-            int color = widget == selected ? (xp ? 0xffffc73c : 0xfff5a9ca) : 0x99ffffff;
+            int color = widget == selected ? (xp ? XpTheme.color(0xffffc73c, 0xffffd36a) : 0xfff5a9ca)
+                : (xp ? XpTheme.color(0x99ffffff, 0xb3dae8fa) : 0x99ffffff);
             g.fill(r.x(), r.y(), r.x() + r.width(), r.y() + 1, color);
             g.fill(r.x(), r.y() + r.height() - 1, r.x() + r.width(), r.y() + r.height(), color);
             g.fill(r.x(), r.y(), r.x() + 1, r.y() + r.height(), color);
             g.fill(r.x() + r.width() - 1, r.y(), r.x() + r.width(), r.y() + r.height(), color);
             if (r.contains(mouseX, mouseY)) g.text(font, widget.title(), r.x() + 3, Math.max(30, r.y() - 11),
-                xp && widget != selected ? 0xffcde5ff : color, true);
+                xp && widget != selected ? XpTheme.color(0xffcde5ff, 0xffd4e6ff) : color, true);
         }
         if (xp) {
             int headerWidth = Math.min(420, width - 8), headerX = (width - headerWidth) / 2;
-            g.fill(headerX, 3, headerX + headerWidth, 30, 0xff003c74);
-            g.fillGradient(headerX + 1, 4, headerX + headerWidth - 1, 29, 0xff4d91f2, XpTheme.BLUE);
-            g.fill(headerX + 2, 4, headerX + headerWidth - 2, 5, 0xff85b4f5);
-            g.centeredText(font, "Drag panels · Arrow keys move selected panel", width / 2, 6, 0xffffffff);
-            g.centeredText(font, "Enable more modules in the module browser", width / 2, 17, 0xffe5efff);
+            g.fill(headerX, 3, headerX + headerWidth, 30, XpTheme.color(0xff003c74, 0xff0c1a30));
+            g.fillGradient(headerX + 1, 4, headerX + headerWidth - 1, 29,
+                XpTheme.color(0xff4d91f2, 0xff345783), XpTheme.color(XpTheme.BLUE, 0xff203c64));
+            g.fill(headerX + 2, 4, headerX + headerWidth - 2, 5, XpTheme.color(0xff85b4f5, 0xff6586af));
+            g.centeredText(font, "Drag panels · Arrow keys move selected panel", width / 2, 6, XpTheme.color(0xffffffff, 0xffeaf2ff));
+            g.centeredText(font, "Enable more modules in the module browser", width / 2, 17, XpTheme.color(0xffe5efff, 0xffc2d4eb));
         } else {
             g.fill(width / 2 - 174, 3, width / 2 + 174, 28, 0xdd14141d);
             g.centeredText(font, "Drag panels · Arrow keys move selected panel", width / 2, 6, 0xfff5a9ca);
