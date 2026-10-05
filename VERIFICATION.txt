@@ -1,0 +1,29 @@
+Pawtism Client 1.2.0 for Minecraft 26.2 — release verification
+
+Release build and all five native client checks: passed.
+Runtime requirements: Minecraft 26.2, Java 25, Fabric Loader 0.19.5 or later.
+Delivered features: 50 original feature toggles and 22 movable HUD panels.
+
+48 unit tests passed with zero failures, errors, or skips:
+- dev.pawtism.client.WaypointTest: 7
+- dev.pawtism.client.ZoomMathTest: 12
+- dev.pawtism.client.combat.CombatTrackingTest: 6
+- dev.pawtism.client.hud.HudLayoutTest: 3
+- dev.pawtism.client.hud.HudMathTest: 9
+- dev.pawtism.client.qol.QolStateTest: 5
+- dev.pawtism.client.skin.SkinVoxelMeshTest: 6
+
+Native client checks:
+- Original features: native zoom and sprint, waypoint editing and persistence, HUD values, shulker preview, voxel skin geometry, first-person sleeves, flat dropped items, and video preset.
+- Expanded HUDs: module search and categories, live status and inventory values, HUD dragging, keyboard positioning, responsive layout, and saved settings.
+- PvP information: physical left/right mouse input, actual confirmed damage packets, approximate hit distance, rejected damage, attack charge, target tint, and reversible fire/held-item visuals.
+- Quality of life: protected item dropping and key release, chat timestamps, native sneak, cosmetic weather/time, visibility controls, canceled reconnect, and saved death markers.
+- XP interface: native title, options, language, accessibility, world and server lists, direct-connect keyboard editing, checkbox, slider, disabled-button tooltip, inventory, pause, live furnace progress, MaLiLib settings, and Mod Menu. Native menu return actions and theme off/on were checked at 1280×800 and 640×480 with GUI scale 2.
+
+Native preview collection: 66 current PNG snapshots.
+Visual review: Reviewed the desktop, module browser, waypoint editor, native menu controls, tooltips, inventory and live furnace indicators, Mod Menu badges, and detailed settings at both window sizes. Narrow Reset controls and theme restoration were checked visually.
+
+Artifact checks: version 1.2.0+26.2; all 45 registered client mixin classes present; test fixtures excluded; client license present; archive CRC checks passed. The four unmodified library JARs match the recorded SHA-512 and SHA-1 hashes.
+Client SHA-256: ce46058a44331b8251dd20a20e4df4f12fefe8746bc53556170f10fc212ba866
+
+Practical limits: live multiplayer and unrelated mod combinations were not tested. Multiplayer saturation and hit distance are estimates. The video preset has no fixed FPS claim. Voxel layers support standard 64×64 skins. Reconnect cancellation was checked without connecting to a server.

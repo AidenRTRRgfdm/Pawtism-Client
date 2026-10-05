@@ -2,15 +2,24 @@
 
 A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, waypoints and visual quality-of-life features.
 
-**Version 1.1.0** includes **49 feature toggles**, a searchable module browser and **22 movable HUD panels**.
+**Version 1.2.0** adds an XP-style desktop and interface to **50 feature toggles**, a searchable module browser and **22 movable HUD panels**.
+
+## Screenshots
+
+![Pawtism XP desktop](docs/images/desktop.png)
+
+![Pawtism module browser](docs/images/modules.png)
 
 ## Downloads
 
-This repository includes Java source and ready-to-use downloads. Use the compiled release to install.
+This repository includes Java source and precompiled downloads. Use the compiled release to install.
 
-- [Pawtism Client 1.1.0 for Minecraft 26.2](downloads/pawtism-client-1.1.0+26.2.jar)
-- [Ready-to-copy install bundle](downloads/PawtismClient-1.1.0-26.2.zip)
+- [Pawtism Client 1.2.0 JAR](downloads/pawtism-client-1.2.0+26.2.jar)
+- [Install bundle with all four libraries](downloads/PawtismClient-1.2.0-26.2.zip)
+- [Source archive](downloads/PawtismClient-1.2.0-26.2-source.zip)
 - [GitHub releases](https://github.com/AidenRTRRgfdm/Pawtism-Client/releases)
+
+The install bundle contains Pawtism and its four required libraries. Checksums are included with the downloads.
 
 ## Requirements
 
@@ -32,7 +41,7 @@ Pawtism runs on your client. Servers do not need to install it.
 
 ### Required libraries
 
-These versions match Pawtism 1.1.0 for Minecraft 26.2.
+These versions match Pawtism 1.2.0 for Minecraft 26.2.
 
 | Library | Version |
 | --- | --- |
@@ -55,6 +64,19 @@ Text Placeholder API is required by this version of Mod Menu.
 | Normal drop key | Confirm a protected item drop with a second press |
 
 You can change Pawtism's keybinds in Minecraft Controls. The settings button in **Mods → Pawtism Client** opens the same module browser.
+
+## XP interface
+
+The XP interface is enabled by default. The title screen becomes a desktop with an original sky-and-hills background, a blue Pawtism window and a taskbar. The background and window chrome use colored shapes and require no extra resource pack.
+
+Menus also use classic button, checkbox, slider, text-field, list, scrollbar, tooltip and inventory-panel styling. Minecraft keeps its normal menu actions, keyboard input, item slots and progress indicators.
+
+- Choose **Modules** on the desktop to open Pawtism.
+- Choose **Classic menu** to turn the theme off and return to Minecraft's title screen.
+- While playing, press **Right Shift**, choose **UI**, and switch **XP interface** on or off.
+- From the classic title screen, use **Mods → Pawtism Client → settings**, then **UI**, to enable it again.
+
+The theme setting is saved with your other Pawtism preferences.
 
 ## Features
 
@@ -89,7 +111,7 @@ You can change Pawtism's keybinds in Minecraft Controls. The settings button in 
 - Cosmetic sky time and local clear weather
 - Optional hiding of scoreboards, boss bars, titles and toast cards
 
-See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
+The **UI** category contains the XP interface toggle. See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
 
 ## Arrange your HUD
 

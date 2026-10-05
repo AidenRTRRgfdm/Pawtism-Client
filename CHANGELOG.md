@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0 — Minecraft 26.2
+
+### XP interface
+
+- Added an XP-style title desktop with a sky-and-hills background, blue Pawtism window and taskbar.
+- Added desktop shortcuts that open the original singleplayer and multiplayer menus, plus Pawtism's module browser.
+- Added classic styling for native buttons, checkboxes, sliders, editable text fields, lists, scrollbars and tooltip frames.
+- Added classic inventory/container panels and slot borders while preserving item icons, slot input and small status or progress indicators.
+- Added the **UI** category and **XP interface** toggle, enabled by default.
+- Added **Classic menu** to turn the theme off from the title screen. The theme can also be changed through **UI** in the module browser.
+- Fixed Escape from detailed settings so it returns to the module browser.
+
+Pawtism now has **50 feature toggles** and **22 movable HUD panels**. Existing modules, library requirements, keybinds, saved settings and waypoints remain available.
+
 ## 1.1.0 — Minecraft 26.2
 
 ### Modules
