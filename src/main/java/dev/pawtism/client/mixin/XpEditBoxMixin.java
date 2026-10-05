@@ -29,7 +29,7 @@ public abstract class XpEditBoxMixin extends AbstractWidget {
             || !(net.minecraft.client.Minecraft.getInstance().gui.screen() instanceof net.minecraft.client.gui.screens.ChatScreen));
         if (!pawtism$restoring) return;
         pawtism$oldColor = textColor; pawtism$oldInactive = textColorUneditable; pawtism$oldShadow = textShadow;
-        textColor = 0xff202638; textColorUneditable = 0xff77777e; textShadow = false;
+        textColor = XpTheme.color(0xff202638, 0xffE8EDF5); textColorUneditable = XpTheme.color(0xff77777e, 0xffA2ABBD); textShadow = false;
     }
     @Inject(method = "extractWidgetRenderState", at = @At("RETURN"))
     private void pawtism$restore(GuiGraphicsExtractor g, int mx, int my, float delta, CallbackInfo ci) {
@@ -39,8 +39,8 @@ public abstract class XpEditBoxMixin extends AbstractWidget {
     @Redirect(method = "extractWidgetRenderState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V"))
     private void pawtism$field(GuiGraphicsExtractor g, RenderPipeline pipeline, Identifier sprite, int x, int y, int w, int h) {
         if (!XpTheme.enabled()) { g.blitSprite(pipeline, sprite, x, y, w, h); return; }
-        g.fill(x, y, x + w, y + h, isFocused() ? 0xff316ac5 : 0xff7f9db9);
-        g.fill(x + 1, y + 1, x + w - 1, y + h - 1, active ? 0xffffffff : 0xffece9d8);
-        g.fill(x + 1, y + 1, x + w - 1, y + 2, 0xffd3d6dc);
+        g.fill(x, y, x + w, y + h, isFocused() ? XpTheme.color(0xff316ac5, 0xff7FA8ED) : XpTheme.color(0xff7f9db9, 0xff4E617E));
+        g.fill(x + 1, y + 1, x + w - 1, y + h - 1, active ? XpTheme.color(0xffffffff, 0xff181E2A) : XpTheme.body());
+        g.fill(x + 1, y + 1, x + w - 1, y + 2, XpTheme.color(0xffd3d6dc, 0xff101620));
     }
 }

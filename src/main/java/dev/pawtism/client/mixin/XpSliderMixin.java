@@ -21,12 +21,12 @@ public abstract class XpSliderMixin extends AbstractWidget.WithInactiveMessage {
         if (sprite.getPath().contains("handle")) XpTheme.button(g, x, y, w, h, isHovered(), isFocused(), active);
         else {
             XpTheme.panel(g, x, y, w, h);
-            g.fill(x + 4, y + h / 2 - 1, x + w - 4, y + h / 2 + 2, 0xff8c929b);
-            g.fill(x + 4, y + h / 2 + 2, x + w - 4, y + h / 2 + 3, 0xffffffff);
+            g.fill(x + 4, y + h / 2 - 1, x + w - 4, y + h / 2 + 2, XpTheme.color(0xff8c929b, 0xff111823));
+            g.fill(x + 4, y + h / 2 + 2, x + w - 4, y + h / 2 + 3, XpTheme.color(0xffffffff, 0xff52617a));
         }
     }
     @ModifyArg(method = "extractWidgetRenderState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/AbstractSliderButton;extractScrollingStringOverContents(Lnet/minecraft/client/gui/ActiveTextCollector;Lnet/minecraft/network/chat/Component;I)V"), index = 1)
     private Component pawtism$label(Component label) {
-        return XpTheme.enabled() ? label.copy().withStyle(s -> s.withColor(active ? 0x202638 : 0x83838a)) : label;
+        return XpTheme.enabled() ? label.copy().withStyle(s -> s.withColor(active ? XpTheme.color(0x202638, 0xE8EDF5) : XpTheme.color(0x83838a, 0xA2ABBD))) : label;
     }
 }

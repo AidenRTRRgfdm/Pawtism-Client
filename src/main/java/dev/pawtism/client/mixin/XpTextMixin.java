@@ -22,14 +22,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class XpTextMixin {
     @Inject(method = "text(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;IIIZ)V", at = @At("HEAD"), cancellable = true)
     private void pawtism$text(Font font, FormattedCharSequence text, int x, int y, int color, boolean shadow, CallbackInfo ci) {
-        if (XpText.lightSurface(y) && XpText.pale(color)) {
-            ((GuiGraphicsExtractor) (Object) this).text(font, XpText.decorate(text, y), x, y, (color & 0xff000000) | 0x202638, false);
+        if (XpText.needsColor(color, y)) {
+            ((GuiGraphicsExtractor) (Object) this).text(font, XpText.decorate(text, y), x, y, XpText.color(color, y), false);
             ci.cancel();
         }
     }
     @Inject(method = "textRendererForWidget", at = @At("RETURN"), cancellable = true)
     private void pawtism$widgetText(AbstractWidget owner, GuiGraphicsExtractor.HoveredTextEffects effects, CallbackInfoReturnable<ActiveTextCollector> cir) {
-        cir.setReturnValue(XpText.wrap(cir.getReturnValue()));
+        cir.setReturnValue(XpText.wrap(cir.getReturnValue(), true));
     }
     @Inject(method = "textRenderer(Lnet/minecraft/client/gui/GuiGraphicsExtractor$HoveredTextEffects;Ljava/util/function/Consumer;)Lnet/minecraft/client/gui/ActiveTextCollector;", at = @At("RETURN"), cancellable = true)
     private void pawtism$styledText(GuiGraphicsExtractor.HoveredTextEffects effects, Consumer<Style> consumer, CallbackInfoReturnable<ActiveTextCollector> cir) {

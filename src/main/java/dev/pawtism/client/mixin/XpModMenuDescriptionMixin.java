@@ -12,6 +12,6 @@ public abstract class XpModMenuDescriptionMixin {
         target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;text(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;III)V",
         remap = false), index = 4)
     private int pawtism$descriptionColor(int color) {
-        return XpTheme.enabled() && (color & 0xFFFFFF) == 0xAAAAAA ? (color & 0xFF000000) | 0x555555 : color;
+        return XpTheme.enabled() && (color & 0xFFFFFF) == 0xAAAAAA ? (color & 0xFF000000) | XpTheme.color(0x555555, 0xA2ABBD) : color;
     }
 }

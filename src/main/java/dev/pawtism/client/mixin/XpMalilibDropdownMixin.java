@@ -19,12 +19,12 @@ public abstract class XpMalilibDropdownMixin {
     @Redirect(method = {"render", "renderOpen"}, at = @At(value = "INVOKE", target = "Lfi/dy/masa/malilib/render/RenderUtils;drawOutlinedBox(Lfi/dy/masa/malilib/render/GuiContext;IIIIII)V"))
     private void pawtism$box(GuiContext context, int x, int y, int width, int height, int background, int outline) {
         RenderUtils.drawOutlinedBox(context, x, y, width, height,
-            PawtismScreen.xpControls() ? 0xfffefefe : background, PawtismScreen.xpControls() ? 0xff7f9db9 : outline);
+            PawtismScreen.xpControls() ? XpTheme.color(0xfffefefe, 0xff181E2A) : background, PawtismScreen.xpControls() ? XpTheme.color(0xff7f9db9, 0xff4E617E) : outline);
     }
 
     @Redirect(method = "renderOpen", at = @At(value = "INVOKE", target = "Lfi/dy/masa/malilib/render/RenderUtils;drawRect(Lfi/dy/masa/malilib/render/GuiContext;IIIII)V"))
     private void pawtism$row(GuiContext context, int x, int y, int width, int height, int color) {
-        if (PawtismScreen.xpControls()) color = (color >>> 24) >= 80 ? 0xffd6e7fa : XpTheme.BEIGE;
+        if (PawtismScreen.xpControls()) color = (color >>> 24) >= 80 ? XpTheme.color(0xffd6e7fa, 0xff304A70) : XpTheme.body();
         RenderUtils.drawRect(context, x, y, width, height, color);
     }
 
@@ -35,7 +35,7 @@ public abstract class XpMalilibDropdownMixin {
         int center = x + width / 2, top = y + height / 2 - 2;
         for (int row = 0; row < 4; row++) {
             int span = isOpen ? 1 + row * 2 : 7 - row * 2;
-            graphics.fill(center - span / 2, top + row, center + span / 2 + 1, top + row + 1, XpTheme.DARK_TEXT);
+            graphics.fill(center - span / 2, top + row, center + span / 2 + 1, top + row + 1, XpTheme.text());
         }
     }
 }

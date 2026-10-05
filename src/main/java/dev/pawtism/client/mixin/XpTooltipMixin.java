@@ -19,12 +19,12 @@ public abstract class XpTooltipMixin {
         int right = x + width + TooltipRenderUtil.PADDING_RIGHT;
         int bottom = y + height + TooltipRenderUtil.PADDING_BOTTOM;
         g.fill(left + 2, top + 2, right + 2, bottom + 2, 0x66000000);
-        g.fillGradient(left, top, right, bottom, 0xF51C2746, 0xF50E1629);
-        g.fill(left, top, right, top + 1, 0xFFFFCF67);
-        g.fill(left, bottom - 1, right, bottom, 0xFFD6A840);
-        g.fill(left, top + 1, left + 1, bottom - 1, 0xFFFFCF67);
-        g.fill(right - 1, top + 1, right, bottom - 1, 0xFFD6A840);
-        g.fill(left + 1, top + 1, right - 1, top + 2, 0xFF627CAF);
+        g.fillGradient(left, top, right, bottom, XpTheme.color(0xF51C2746, 0xF5181E2A), XpTheme.color(0xF50E1629, 0xF5101520));
+        g.fill(left, top, right, top + 1, XpTheme.color(0xFFFFCF67, 0xFF7FA8ED));
+        g.fill(left, bottom - 1, right, bottom, XpTheme.color(0xFFD6A840, 0xFF4E617E));
+        g.fill(left, top + 1, left + 1, bottom - 1, XpTheme.color(0xFFFFCF67, 0xFF7FA8ED));
+        g.fill(right - 1, top + 1, right, bottom - 1, XpTheme.color(0xFFD6A840, 0xFF4E617E));
+        g.fill(left + 1, top + 1, right - 1, top + 2, XpTheme.color(0xFF627CAF, 0xFF384C70));
         ci.cancel();
     }
 }

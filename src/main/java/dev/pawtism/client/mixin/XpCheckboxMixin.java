@@ -24,18 +24,18 @@ public abstract class XpCheckboxMixin {
         }
         Checkbox checkbox = (Checkbox)(Object)this;
         int alpha = tint & 0xFF000000;
-        int edge = alpha | (checkbox.isFocused() ? 0x246DB3 : 0x77756C);
-        g.fill(x, y, x + width, y + height, alpha | 0xECE9D8);
+        int edge = alpha | (checkbox.isFocused() ? XpTheme.color(0x246DB3, 0x7FA8ED) : XpTheme.color(0x77756C, 0x53627B));
+        g.fill(x, y, x + width, y + height, alpha | (XpTheme.body() & 0xFFFFFF));
         g.fill(x + 2, y + 2, x + width - 2, y + height - 2,
-            alpha | (checkbox.active ? 0xFFFFFF : 0xE8E5D7));
+            alpha | (checkbox.active ? XpTheme.color(0xFFFFFF, 0x181E2A) : XpTheme.color(0xE8E5D7, 0x242B37)));
         g.fill(x, y, x + width, y + 1, edge);
         g.fill(x, y + 1, x + 1, y + height, edge);
-        g.fill(x + 1, y + 1, x + width - 1, y + 2, alpha | 0xAAA89D);
-        g.fill(x + 1, y + 2, x + 2, y + height - 1, alpha | 0xAAA89D);
-        g.fill(x, y + height - 1, x + width, y + height, checkbox.isFocused() ? edge : alpha | 0xFFFFFF);
-        g.fill(x + width - 1, y + 1, x + width, y + height - 1, checkbox.isFocused() ? edge : alpha | 0xFFFFFF);
+        g.fill(x + 1, y + 1, x + width - 1, y + 2, alpha | XpTheme.color(0xAAA89D, 0x111823));
+        g.fill(x + 1, y + 2, x + 2, y + height - 1, alpha | XpTheme.color(0xAAA89D, 0x111823));
+        g.fill(x, y + height - 1, x + width, y + height, checkbox.isFocused() ? edge : alpha | XpTheme.color(0xFFFFFF, 0x52617A));
+        g.fill(x + width - 1, y + 1, x + width, y + height - 1, checkbox.isFocused() ? edge : alpha | XpTheme.color(0xFFFFFF, 0x52617A));
         if (selected) {
-            int check = alpha | (checkbox.active ? 0x23812B : 0x929085);
+            int check = alpha | (checkbox.active ? XpTheme.color(0x23812B, 0x76D895) : XpTheme.color(0x929085, 0x7F8C9E));
             for (int i = 0; i < 3; i++) g.fill(x + 4 + i, y + 8 + i, x + 6 + i, y + 10 + i, check);
             for (int i = 0; i < 6; i++) g.fill(x + 7 + i, y + 10 - i, x + 9 + i, y + 12 - i, check);
         }

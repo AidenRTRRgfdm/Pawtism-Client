@@ -40,9 +40,9 @@ public abstract class XpMalilibButtonMixin extends ButtonBase {
         if (displayString == null || displayString.isBlank()) return;
         String label = ChatFormatting.stripFormatting(displayString);
         if (label == null) return;
-        int color = enabled ? XpTheme.DARK_TEXT : XpTheme.MUTED_TEXT;
-        if (enabled && displayString.contains("§a")) color = 0xff28632f;
-        else if (enabled && displayString.contains("§c")) color = 0xff9b3833;
+        int color = enabled ? XpTheme.text() : XpTheme.mutedText();
+        if (enabled && displayString.contains("§a")) color = XpTheme.color(0xff28632f, 0xff8FE0A9);
+        else if (enabled && displayString.contains("§c")) color = XpTheme.color(0xff9b3833, 0xffFFADA4);
         int textX = getX() + 6;
         if (textCentered) textX = getX() + (getWidth() - textRenderer.width(label)) / 2;
         else if (icon != null && alignment == LeftRight.LEFT) textX += icon.getWidth() + 2;

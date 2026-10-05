@@ -23,7 +23,7 @@ public abstract class XpButtonMixin extends AbstractWidget.WithInactiveMessage {
     @Inject(method = "extractDefaultLabel", at = @At("HEAD"), cancellable = true)
     private void pawtism$label(ActiveTextCollector output, CallbackInfo ci) {
         if (!XpTheme.enabled()) return;
-        extractScrollingStringOverContents(output, getMessage().copy().withStyle(s -> s.withColor(active ? 0x202638 : 0x83838a)), 2);
+        extractScrollingStringOverContents(output, getMessage().copy().withStyle(s -> s.withColor(active ? XpTheme.color(0x202638, 0xE8EDF5) : XpTheme.color(0x83838a, 0xA2ABBD))), 2);
         ci.cancel();
     }
 }

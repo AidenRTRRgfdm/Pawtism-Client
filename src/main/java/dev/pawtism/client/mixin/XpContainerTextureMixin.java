@@ -27,10 +27,10 @@ public abstract class XpContainerTextureMixin {
         if (texture.getPath().endsWith("/furnace.png") || texture.getPath().endsWith("/blast_furnace.png")
                 || texture.getPath().endsWith("/smoker.png")) {
             // This empty arrow was part of the replaced sheet. Native cooking progress is drawn over it next.
-            graphics.fill(x + 79, y + 39, x + 96, y + 45, 0xffaba99d);
+            graphics.fill(x + 79, y + 39, x + 96, y + 45, XpTheme.color(0xffaba99d, 0xff52617A));
             for (int band = 0; band < 8; band++) {
                 int inset = Math.abs(7 - band * 2);
-                graphics.fill(x + 94, y + 34 + band * 2, x + 104 - inset, y + 36 + band * 2, 0xffaba99d);
+                graphics.fill(x + 94, y + 34 + band * 2, x + 104 - inset, y + 36 + band * 2, XpTheme.color(0xffaba99d, 0xff52617A));
             }
         }
         ci.cancel();

@@ -20,12 +20,12 @@ public abstract class XpMalilibSliderMixin {
         if (!PawtismScreen.xpControls()) { context.blitSprite(pipeline, sprite, x, y, width, height); return; }
         GuiGraphicsExtractor graphics = context.getGuiGraphics();
         if (sprite.equals(WidgetSlider.BUTTON_DISABLE_TEXTURE)) {
-            graphics.fill(x, y, x + width, y + height, XpTheme.BEIGE);
-            graphics.fill(x + 2, y + height / 2 - 2, x + width - 2, y + height / 2 + 1, 0xff8c929b);
-            graphics.fill(x + 2, y + height / 2 + 1, x + width - 2, y + height / 2 + 2, 0xffffffff);
+            graphics.fill(x, y, x + width, y + height, XpTheme.body());
+            graphics.fill(x + 2, y + height / 2 - 2, x + width - 2, y + height / 2 + 1, XpTheme.color(0xff8c929b, 0xff111823));
+            graphics.fill(x + 2, y + height / 2 + 1, x + width - 2, y + height / 2 + 2, XpTheme.color(0xffffffff, 0xff52617A));
         } else XpTheme.button(graphics, x, y, width, height, false, false, true);
     }
 
     @ModifyArg(method = "render", at = @At(value = "INVOKE", target = "Lfi/dy/masa/malilib/gui/widgets/WidgetSlider;drawString(Lfi/dy/masa/malilib/render/GuiContext;IIILjava/lang/String;)V"), index = 3)
-    private int pawtism$valueColor(int color) { return PawtismScreen.xpControls() ? XpTheme.DARK_TEXT : color; }
+    private int pawtism$valueColor(int color) { return PawtismScreen.xpControls() ? XpTheme.text() : color; }
 }
