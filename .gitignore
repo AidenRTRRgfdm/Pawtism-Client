@@ -1,0 +1,7 @@
+build/
+run/
+logs/
+config/
+.idea/
+*.iml
+.DS_Store

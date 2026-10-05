@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Fabric API",
+    "slug": "fabric-api",
+    "version": "0.161.0+26.2",
+    "versionId": "ewUK83HI",
+    "filename": "fabric-api-0.161.0+26.2.jar",
+    "size": 2566123,
+    "hashes": {
+      "sha1": "332da34ebb72171e603a0c538de17f4c54ea9e29",
+      "sha512": "2502fa5ade78e9a120b3747bc1a9a2167d6671743bea45bf115d3174c94121aeda87c549446d1a604a9c11fb828de17a551e3514ce42f3e93069dd14bdaee55b"
+    },
+    "download": "https://cdn.modrinth.com/data/P7dR8mSH/versions/ewUK83HI/fabric-api-0.161.0%2B26.2.jar",
+    "page": "https://modrinth.com/mod/fabric-api/version/ewUK83HI",
+    "source": "https://github.com/FabricMC/fabric",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "MaLiLib",
+    "slug": "malilib",
+    "version": "0.29.6",
+    "versionId": "KvjmGjAV",
+    "filename": "malilib-fabric-26.2-0.29.6.jar",
+    "size": 2037195,
+    "hashes": {
+      "sha512": "0fab398f835d9c4736dac65510f707c77a60be6e6051bfd008225c20a5ff13e146296da258bee551d39fa28102b8854d77fa25b2ecb6b0f89fb3c874bac563db",
+      "sha1": "8e4959313bec2d413ac898d1a030f1d73d419d5a"
+    },
+    "download": "https://cdn.modrinth.com/data/GcWjdA9I/versions/KvjmGjAV/malilib-fabric-26.2-0.29.6.jar",
+    "page": "https://modrinth.com/mod/malilib/version/KvjmGjAV",
+    "source": "https://github.com/maruohon/malilib/",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "name": "Mod Menu",
+    "slug": "modmenu",
+    "version": "20.0.3",
+    "versionId": "iRo7AZXf",
+    "filename": "modmenu-20.0.3.jar",
+    "size": 616919,
+    "hashes": {
+      "sha1": "9fc381627b471c18d67156e846228f51ff2ea5b4",
+      "sha512": "c8224aa7a460d0c56ccb9978a112e4ad0d3eb17e2796e0c468a2392d220749f4f602838a11b3666145462c26078a879ab8a2fc177aa440f58e189c92a0088d6e"
+    },
+    "download": "https://cdn.modrinth.com/data/mOgUt4GM/versions/iRo7AZXf/modmenu-20.0.3.jar",
+    "page": "https://modrinth.com/mod/modmenu/version/iRo7AZXf",
+    "source": "https://github.com/TerraformersMC/ModMenu",
+    "license": "MIT"
+  },
+  {
+    "name": "Text Placeholder API",
+    "slug": "placeholder-api",
+    "version": "3.1.0-beta.1+26.2",
+    "versionId": "NDqH16LT",
+    "filename": "placeholder-api-3.1.0-beta.1+26.2.jar",
+    "size": 254973,
+    "hashes": {
+      "sha1": "99b57ccc1d4323c4ef71887828dac25ce4ce2103",
+      "sha512": "07b6fc802559d54ec6577f6e2788926ef391d755206c2bfb0528280977885cae4bc0c517d8a53eb6f34092015ebe6c41210627d255aa6504662daefa8fb76397"
+    },
+    "download": "https://cdn.modrinth.com/data/eXts2L7r/versions/NDqH16LT/placeholder-api-3.1.0-beta.1%2B26.2.jar",
+    "page": "https://modrinth.com/mod/placeholder-api/version/NDqH16LT",
+    "source": "https://github.com/Patbox/TextPlaceholderAPI",
+    "license": "LGPL-3.0-only"
+  }
+]
