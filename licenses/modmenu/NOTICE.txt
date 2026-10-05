@@ -1,0 +1,5 @@
+Mod Menu 20.0.3
+License: MIT
+Release: https://modrinth.com/mod/modmenu/version/iRo7AZXf
+Source: https://github.com/TerraformersMC/ModMenu
+The library binary is distributed unmodified and retains its original attribution.
