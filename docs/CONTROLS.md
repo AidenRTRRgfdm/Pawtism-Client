@@ -15,12 +15,25 @@ Close other menus before using these shortcuts. Zoom and waypoint shortcuts requ
 
 Open Pawtism with **Right Shift**, or use its configuration button in **Mod Menu**.
 
-- Choose **All**, **Core**, **HUD**, **PvP**, or **QoL** to filter the module cards.
+- Choose **All**, **Core**, **HUD**, **PvP**, **QoL**, or **UI** to filter the module cards.
 - Type in **Search modules** to find a module.
 - Click a card's **ON/OFF** button to toggle it.
 - Use **<** and **>** to change pages.
 - Open **Module settings** to adjust the selected category's toggles, values, colors, and reset controls.
 - Choose **Done** to save and close the browser.
+
+## Desktop and theme
+
+The **XP interface** is enabled by default in version 1.2.0.
+
+- **Launch Minecraft** opens Minecraft's singleplayer menu.
+- **Multiplayer** opens Minecraft's multiplayer menu.
+- **Modules** and the taskbar's **start** button open Pawtism's module browser.
+- **Classic menu** disables the theme and opens the ordinary title screen.
+
+To change the theme while playing, press **Right Shift**, choose **UI**, and toggle **XP interface**. To turn it back on from the ordinary title screen, use **Mods → Pawtism Client → settings → UI**.
+
+The styled controls use Minecraft's normal mouse, keyboard, focus and text-editing behavior. Back, Done, Escape and inventory interactions retain their usual actions.
 
 ## Sprint and sneak
 

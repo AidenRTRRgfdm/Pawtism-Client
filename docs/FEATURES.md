@@ -1,6 +1,6 @@
 # Feature reference
 
-Pawtism Client **1.1.0** for Minecraft **26.2** has **49 feature toggles** across four categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
+Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
 
 ## Core — 11 features
 
@@ -83,6 +83,22 @@ Pawtism Client **1.1.0** for Minecraft **26.2** has **49 feature toggles** acros
 - Automatic death markers are stored per world or server.
 - The default limit is three automatic death markers; manually saved waypoints are separate.
 - Reconnect starts only after clicking its button and makes one connection attempt.
+
+## UI — 1 feature
+
+- **XP interface:** an XP-style desktop, blue window frames and classic controls. Enabled by default.
+
+The title screen has a sky-and-hills desktop background drawn from colored shapes, a Pawtism window and a taskbar. **Launch Minecraft**, **Multiplayer** and the window's original Minecraft buttons keep their normal actions. **Modules** and **start** open Pawtism's module browser.
+
+The theme also styles buttons, checkboxes, slider tracks and handles, editable text fields, lists, scrollbars, tooltip frames and inventory/container panels. Native keyboard navigation, text editing, item slots, item tooltips and small progress or status indicators keep their usual behavior. Minecraft's original item and menu icons remain in use.
+
+### Turn the theme off or on
+
+- Choose **Classic menu** on the title desktop to turn the theme off and return to the ordinary Minecraft title screen.
+- In a world, press **Right Shift**, choose **UI**, and toggle **XP interface**.
+- From the ordinary title screen, open **Mods → Pawtism Client → settings**, choose **UI**, and turn **XP interface** on.
+
+Turning the theme off restores the ordinary interface appearance. The setting is stored in the same Pawtism configuration as your other preferences. The theme adds no HUD panel; the total remains **22**.
 
 ## HUD layout and settings
 
