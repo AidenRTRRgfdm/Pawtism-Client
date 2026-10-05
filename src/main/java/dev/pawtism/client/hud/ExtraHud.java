@@ -19,7 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.server.packs.repository.PackSource;
 
-/** Information widgets backed by native Minecraft state. */
+/** Original Lunar/Feather-style information widgets, backed by native Minecraft state. */
 public final class ExtraHud {
     private static final int TEXT = 0xFFF2F2F7;
     private static final int BACKGROUND = 0xA014141D;
