@@ -2,7 +2,7 @@
 
 Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
 
-## Core — 11 features
+## Core (11 features)
 
 - **Zoom:** hold Z for optical zoom. Magnification is adjustable from 2× to 16×, with 4× as the default.
 - **Toggle sprint:** use Minecraft's native toggle sprint control.
@@ -16,7 +16,7 @@ Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** acros
 - **Shulker box preview:** show the item's stored contents in a tooltip grid.
 - **Performance preset:** apply a reversible set of lighter video settings.
 
-## HUD — 16 features
+## HUD (16 features)
 
 - **Coordinates:** position and dimension.
 - **Direction / compass:** facing direction and compass heading.
@@ -35,7 +35,7 @@ Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** acros
 - **Arrow / totem counter:** arrows and totems in your inventory and offhand.
 - **FPS / frame graph:** FPS and timing over the last 90 rendered frames.
 
-## PvP — 10 features
+## PvP (10 features)
 
 - **Left / right CPS:** physical mouse presses during gameplay, counted over the last second.
 - **Keystrokes:** movement keys, mouse buttons and space indicators.
@@ -55,7 +55,7 @@ Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** acros
 - Distance is marked as approximate. Latency affects the measurement.
 - These displays leave attack range, damage and cooldowns at their normal values.
 
-## Quality of life — 12 features
+## Quality of life (12 features)
 
 - **Death location:** report your death coordinates locally in chat.
 - **Death waypoints:** save an automatic marker at your death location.
@@ -84,7 +84,7 @@ Pawtism Client **1.2.0** for Minecraft **26.2** has **50 feature toggles** acros
 - The default limit is three automatic death markers; manually saved waypoints are separate.
 - Reconnect starts only after clicking its button and makes one connection attempt.
 
-## UI — 1 feature
+## UI (1 feature)
 
 - **XP interface:** an XP-style desktop, blue window frames and classic controls. Enabled by default.
 
