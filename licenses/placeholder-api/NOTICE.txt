@@ -1,0 +1,5 @@
+Text Placeholder API 3.1.0-beta.1+26.2
+License: LGPL-3.0-only
+Release: https://modrinth.com/mod/placeholder-api/version/NDqH16LT
+Source: https://github.com/Patbox/TextPlaceholderAPI
+The library binary is distributed unmodified and retains its original attribution.
