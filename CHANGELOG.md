@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.4.0
+
+### HUD colors
+
+- Added HUD text and background color controls, including background alpha.
+- Reused the existing Accent color and its saved setting.
+- Added HUD Colors access from the module browser and HUD Editor.
+- Added native HSV, RGB and hex pickers, a live preview, and reset controls.
+- Applied the colors immediately throughout Pawtism's 22 HUD panels.
+
+### Discord Rich Presence
+
+- Added an optional Discord Rich Presence module and application ID setting.
+- Added Main menu, Singleplayer and Multiplayer activity states and a session timer.
+- Kept server addresses, world names, coordinates and chat out of the activity.
+- Added background local IPC, reconnects, rate-limited updates and activity cleanup.
+- Kept the required Fabric library versions unchanged.
+
+
 ## 1.3.0 for Minecraft 26.2
 
 ### Dark mode

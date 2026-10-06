@@ -2,7 +2,7 @@
 
 A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, waypoints and visual quality-of-life features.
 
-**Version 1.3.0** adds optional **Dark mode** to the XP interface. Pawtism has **51 feature toggles**, a searchable module browser and **22 movable HUD panels**.
+**Version 1.4.0** adds HUD text and background colors and optional **Discord Rich Presence**. The existing accent picker is reused. Pawtism has **52 feature toggles**, a searchable module browser and **22 movable HUD panels**.
 
 ## Screenshots
 
@@ -10,13 +10,15 @@ A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, way
 
 ![Pawtism module browser in Dark mode](docs/images/modules.png)
 
+![HUD colors with a live preview](docs/images/hud-colors.png)
+
 ## Downloads
 
 This repository includes Java source and precompiled downloads. Use the compiled release to install.
 
-- [Pawtism Client 1.3.0 JAR](downloads/pawtism-client-1.3.0+26.2.jar)
-- [Install bundle with all four libraries](downloads/PawtismClient-1.3.0-26.2.zip)
-- [Source archive](downloads/PawtismClient-1.3.0-26.2-source.zip)
+- [Pawtism Client 1.4.0 JAR](downloads/pawtism-client-1.4.0+26.2.jar)
+- [Install bundle with all four libraries](downloads/PawtismClient-1.4.0-26.2.zip)
+- [Source archive](downloads/PawtismClient-1.4.0-26.2-source.zip)
 - [GitHub releases](https://github.com/AidenRTRRgfdm/Pawtism-Client/releases)
 
 The install bundle contains Pawtism and its four required libraries. Checksums are included with the downloads.
@@ -41,7 +43,7 @@ Pawtism runs on your client. Servers do not need to install it.
 
 ### Required libraries
 
-These versions match Pawtism 1.3.0 for Minecraft 26.2.
+These versions match Pawtism 1.4.0 for Minecraft 26.2.
 
 | Library | Version |
 | --- | --- |
@@ -113,7 +115,7 @@ The XP and dark preferences are saved with your other Pawtism settings. Turning 
 - Cosmetic sky time and local clear weather
 - Optional hiding of scoreboards, boss bars, titles and toast cards
 
-The **UI** category contains the XP interface and Dark mode toggles. See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
+The **UI** category contains XP interface, Dark mode and Discord Rich Presence toggles. See the [full feature reference](docs/FEATURES.md) for every toggle and its behavior.
 
 ## Arrange your HUD
 
@@ -123,6 +125,26 @@ The **UI** category contains the XP interface and Dark mode toggles. See the [fu
 4. Choose **Save & Done**.
 
 Panel positions adapt to the window size. **Reset layout** restores the default arrangement. **Module settings** opens the detailed settings for the selected category, including colors, sizes and limits.
+
+## HUD colors
+
+Open **HUD Colors** from the module browser or **HUD Editor**. There are three controls:
+
+- **Accent color:** the existing control for panel accents and the crosshair.
+- **HUD text color:** labels throughout Pawtism's HUD panels.
+- **HUD background color:** panel backgrounds, including transparency.
+
+Use the native color picker to edit HSV, RGB, hex and alpha values. The preview updates immediately. Each value has a reset button; **Reset colors** restores all three defaults. Colors save with your other settings.
+
+## Discord Rich Presence
+
+Pawtism can show **Main menu**, **Singleplayer** or **Multiplayer** in the Discord desktop app, with a session timer. The toggle is off by default.
+
+1. Open **UI → Module settings**.
+2. Enter a Discord application ID in **Discord application ID**.
+3. Run the Discord desktop app and turn on **Discord Rich Presence**.
+
+The application ID is public. No account token, bot token or client secret is needed. Presence excludes server addresses, world names, coordinates and chat. Disabling the module or closing Minecraft clears its activity. See the [Discord setup guide](docs/DISCORD_RPC.md).
 
 ## Upgrading and saved settings
 

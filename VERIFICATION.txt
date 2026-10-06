@@ -1,13 +1,18 @@
-Pawtism Client 1.3.0 for Minecraft 26.2: release verification
+Pawtism Client 1.4.0 for Minecraft 26.2: release verification
 
-Release build and all five native client checks: passed.
+Release build and all six native client checks: passed.
 Runtime requirements: Minecraft 26.2, Java 25, Fabric Loader 0.19.5 or later.
-Delivered features: 51 original feature toggles and 22 movable HUD panels.
+Delivered features: 52 original feature toggles and 22 movable HUD panels.
 
-53 unit tests passed with zero failures, errors, or skips:
+88 unit tests passed with zero failures, errors, or skips:
 - dev.pawtism.client.WaypointTest: 7
 - dev.pawtism.client.ZoomMathTest: 12
 - dev.pawtism.client.combat.CombatTrackingTest: 6
+- dev.pawtism.client.discord.DiscordIpcConnectorTest: 4
+- dev.pawtism.client.discord.DiscordProtocolTest: 8
+- dev.pawtism.client.discord.DiscordRpcServiceTest: 12
+- dev.pawtism.client.discord.WindowsDiscordTransportTest: 7
+- dev.pawtism.client.hud.HudColorMathTest: 4
 - dev.pawtism.client.hud.HudLayoutTest: 3
 - dev.pawtism.client.hud.HudMathTest: 9
 - dev.pawtism.client.qol.QolStateTest: 5
@@ -22,10 +27,13 @@ Native client checks:
 - XP interface: native title, options, language, accessibility, world and server lists, direct-connect keyboard editing, checkbox, slider, disabled-button tooltip, inventory, pause, live furnace progress, MaLiLib settings, and Mod Menu. Native menu return actions and theme off/on were checked at 1280×800 and 640×480 with GUI scale 2.
 Additional XP coverage in Dark mode: actual module toggle, saved reload and world join persistence, distinct readable palette, native dark menus and containers, module and waypoint editors, MaLiLib and Mod Menu; classic restoration retains the dark preference and the actual OFF toggle restores light XP. Gameplay and chat retain their native text shadow scope; tooltip guards remain balanced.
 
-Native preview collection: 119 current PNG snapshots.
-Visual review: Reviewed the native dark desktop, module browser, small-window options, settings tooltips, inventory, and furnace snapshots for legible controls and preserved layout.
+- HUD colors: actual Modules and HUD Editor navigation, native HEX and numeric alpha keyboard input, live picker previews, individual and full resets, saved configuration reload, and real drawing states of all 22 HUD panels and the custom crosshair. Partial and zero background opacity were checked with light XP at 1280×800 and dark XP at 640×480, both at GUI scale 2.
+- Optional Discord Rich Presence: protocol framing, handshake and acknowledgement handling, generic presence payloads, worker lifecycle, bounded retries, endpoint discovery and Unix sockets were checked with isolated fixtures. Windows named-pipe framing was checked with a substitute pipe. The native client remained disabled without starting an IPC worker.
 
-Artifact checks: version 1.3.0+26.2; all 46 registered client mixin classes present; test fixtures excluded; client license present; archive CRC checks passed. The four unmodified library JARs match the recorded SHA-512 and SHA-1 hashes.
-Client SHA-256: 2874fe0ba01837609193d637a471db29d7ec44a98f28e58ea07ed3b5c2a6e157
+Native preview collection: 135 current PNG snapshots.
+Visual review: Reviewed the live HUD color preview, native HSV picker, transparent gameplay panels and compact module navigation at both tested window sizes. Labels and controls remain readable and inside the window.
 
-Practical limits: live multiplayer and unrelated mod combinations were not tested. Multiplayer saturation and hit distance are estimates. The video preset has no fixed FPS claim. Voxel layers support standard 64×64 skins. Reconnect cancellation was checked without connecting to a server.
+Artifact checks: version 1.4.0+26.2; all 46 registered client mixin classes present; test fixtures excluded; client license present; archive CRC checks passed. The four unmodified library JARs match the recorded SHA-512 and SHA-1 hashes.
+Client SHA-256: af6012cfd16cf6bcd55b90d5a2e566bc601da1bfd9128f70d3996af093653491
+
+Practical limits: live multiplayer and unrelated mod combinations were not tested. Multiplayer saturation and hit distance are estimates. The video preset has no fixed FPS claim. Voxel layers support standard 64×64 skins. Reconnect cancellation was checked without connecting to a server. Automated checks did not connect to a real Discord account or exercise Windows native pipe calls on this macOS host.
