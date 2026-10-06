@@ -1,6 +1,6 @@
 # Feature reference
 
-Pawtism Client **1.3.0** for Minecraft **26.2** has **51 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
+Pawtism Client **1.4.0** for Minecraft **26.2** has **52 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
 
 ## Core (11 features)
 
@@ -84,10 +84,11 @@ Pawtism Client **1.3.0** for Minecraft **26.2** has **51 feature toggles** acros
 - The default limit is three automatic death markers; manually saved waypoints are separate.
 - Reconnect starts only after clicking its button and makes one connection attempt.
 
-## UI (2 features)
+## UI (3 features)
 
 - **XP interface:** an XP-style desktop, blue window frames and classic controls. Enabled by default.
 - **Dark mode:** darker XP scenery and panels with lighter labels. Off by default; used while XP interface is enabled.
+- **Discord Rich Presence:** optional desktop activity with a generic game state and session timer. Off by default.
 
 The title screen has a sky-and-hills desktop background drawn from colored shapes, a Pawtism window and a taskbar. **Launch Minecraft**, **Multiplayer** and the window's original Minecraft buttons keep their normal actions. **Modules** and **start** open Pawtism's module browser.
 
@@ -102,6 +103,22 @@ The theme also styles buttons, checkboxes, slider tracks and handles, editable t
 To switch the palette, enable **XP interface**, then press **Right Shift → UI → Dark mode**. Light remains the default. Changes apply immediately without a restart. Dark mode covers the title desktop, native options and lists, text fields, buttons, tooltips, container panels, module browser, waypoint editor, detailed settings and Mod Menu.
 
 Turning XP interface off restores the vanilla appearance and retains the saved dark preference. Enabling XP again uses that preference. Both settings are stored in the same Pawtism configuration as your other preferences. They add no HUD panel; the total remains **22**.
+
+## HUD colors
+
+Open **HUD Colors** in the module browser or HUD Editor. The existing **Accent color** controls accents and the crosshair; **HUD text color** and **HUD background color** are new. Native HSV, RGB, hex and alpha controls update the preview immediately. Individual resets and **Reset colors** preserve one saved value for each role. Item icons, warning colors and normal Minecraft damage indicators retain their meaning.
+
+## Discord Rich Presence
+
+- Optional **Discord Rich Presence** toggle in UI, off by default.
+- Configure a public **Discord application ID** through UI Module settings.
+- The Discord desktop app must be running. No login credentials are stored.
+- Shows Pawtism Client, Minecraft 26.2, a session timer and Main menu, Singleplayer or Multiplayer.
+- Server addresses, world names, coordinates, player names and chat are excluded.
+- Updates are sent through local IPC on a background worker. Reconnection is automatic when Discord starts.
+- Disabling the feature or closing Minecraft clears its activity.
+
+See [Discord setup](DISCORD_RPC.md) for configuration and troubleshooting.
 
 ## HUD layout and settings
 

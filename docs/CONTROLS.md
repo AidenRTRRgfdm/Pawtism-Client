@@ -24,7 +24,7 @@ Open Pawtism with **Right Shift**, or use its configuration button in **Mod Menu
 
 ## Desktop and theme
 
-The **XP interface** is enabled by default in version 1.3.0.
+The **XP interface** is enabled by default in version 1.4.0.
 
 - **Launch Minecraft** opens Minecraft's singleplayer menu.
 - **Multiplayer** opens Minecraft's multiplayer menu.
@@ -53,6 +53,14 @@ Choose **HUD Editor** in the module browser while in a world.
 - Choose **Save & Done** to save the layout and return to the browser.
 
 Enable a HUD module in the browser before arranging its panel. Panel positions also save when you release a drag or close the editor.
+
+## HUD colors
+
+Open **HUD Colors** from the module browser or HUD Editor. Edit the existing **Accent color**, **HUD text color** or **HUD background color**. The native picker supports HSV, RGB, hex and alpha. Changes apply immediately; **Done** returns to the screen you came from and saves them. Use the individual reset buttons or **Reset colors** for defaults. Accent also changes the crosshair.
+
+## Discord Rich Presence
+
+Choose **UI → Module settings**, enter **Discord application ID**, then turn on **Discord Rich Presence** with the Discord desktop app running. The UI toggle also appears in the module browser and can be found by searching for Discord. This feature is off by default. See [Discord setup](DISCORD_RPC.md).
 
 ## Waypoints
 
