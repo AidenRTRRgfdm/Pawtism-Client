@@ -33,6 +33,9 @@ public final class PawtismConfig implements IConfigHandler {
     public static final ConfigBoolean CROSSHAIR = bool("crosshair", "Custom crosshair", true, "A small configurable crosshair replaces the vanilla crosshair.");
     public static final ConfigInteger CROSSHAIR_SIZE = integer("crosshairSize", "Crosshair size", 5, 2, 16, "Length of the crosshair arms in GUI pixels.");
     public static final ConfigColor ACCENT = new ConfigColor("accent", "#FFF5A9CA", "Accent color for the HUD and crosshair.");
+    public static final ConfigColor HUD_TEXT = color("hudText", "HUD text color", "#FFF2F2F7", "Text on Pawtism HUD panels. Changes appear immediately; the first two hex digits control opacity.");
+    public static final ConfigColor HUD_BACKGROUND = color("hudBackground", "HUD background", "#A014141D", "Background of Pawtism HUD panels. Lower the alpha value for more transparency.");
+    public static final List<IConfigBase> HUD_COLOR_OPTIONS = List.of(ACCENT, HUD_TEXT, HUD_BACKGROUND);
     public static final ConfigBoolean WAYPOINTS = bool("waypoints", "Waypoints", true, "N opens saved locations; B shows or hides markers. Saved separately per world/server.");
     public static final ConfigBoolean SKIN_3D = bool("skin3d", "3D skin layers", true, "Extruded outer skin pixels. Falls back to vanilla skin layers while a skin is loading.");
     public static final ConfigBoolean ITEM_PHYSICS = bool("itemPhysics", "Flat dropped items", true, "Visual item rotation only. Dropped items lie flat on the ground.");
@@ -41,8 +44,10 @@ public final class PawtismConfig implements IConfigHandler {
     public static final ConfigBoolean PERFORMANCE_MODE = bool("performanceMode", "Performance preset", false, "Optional reversible video preset: fewer particles, no clouds or entity shadows, capped view distance. Restores previous settings when disabled.");
     public static final ConfigBoolean XP_THEME = bool("xpTheme", "XP interface", true, "A geometry-drawn desktop, blue window frames and classic controls throughout Minecraft. Disable for the vanilla interface.");
     public static final ConfigBoolean XP_DARK_MODE = bool("xpDarkMode", "Dark mode", false, "Use charcoal windows and a night desktop while the XP interface is enabled. Changes apply immediately.");
-    public static final List<IConfigBase> UI_OPTIONS = List.of(XP_THEME, XP_DARK_MODE);
-    public static final List<IConfigBase> CORE_OPTIONS = List.of(ZOOM, ZOOM_FACTOR, TOGGLE_SPRINT, HUD, ARMOR_HUD, CROSSHAIR, CROSSHAIR_SIZE, ACCENT, WAYPOINTS, SKIN_3D, ITEM_PHYSICS, SATURATION, SHULKER_TOOLTIP, PERFORMANCE_MODE);
+    public static final List<IConfigBase> UI_OPTIONS = java.util.stream.Stream.concat(
+        List.<IConfigBase>of(XP_THEME, XP_DARK_MODE).stream(),
+        dev.pawtism.client.discord.DiscordOptions.OPTIONS.stream()).toList();
+    public static final List<IConfigBase> CORE_OPTIONS = List.of(ZOOM, ZOOM_FACTOR, TOGGLE_SPRINT, HUD, ARMOR_HUD, CROSSHAIR, CROSSHAIR_SIZE, ACCENT, HUD_TEXT, HUD_BACKGROUND, WAYPOINTS, SKIN_3D, ITEM_PHYSICS, SATURATION, SHULKER_TOOLTIP, PERFORMANCE_MODE);
     public static final List<IConfigBase> OPTIONS = java.util.stream.Stream.of(CORE_OPTIONS,
         dev.pawtism.client.hud.HudOptions.OPTIONS, dev.pawtism.client.combat.CombatOptions.OPTIONS,
         dev.pawtism.client.qol.QolOptions.OPTIONS, UI_OPTIONS).flatMap(List::stream).toList();
@@ -57,6 +62,12 @@ public final class PawtismConfig implements IConfigHandler {
     }
     private static ConfigInteger integer(String key, String title, int value, int min, int max, String comment) {
         ConfigInteger result = new ConfigInteger(key, value, min, max, comment);
+        result.setPrettyName(title);
+        result.setTranslatedName(title);
+        return result;
+    }
+    private static ConfigColor color(String key, String title, String value, String comment) {
+        ConfigColor result = new ConfigColor(key, value, comment);
         result.setPrettyName(title);
         result.setTranslatedName(title);
         return result;

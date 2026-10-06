@@ -1,6 +1,7 @@
 package dev.pawtism.client;
 
 import dev.pawtism.client.hud.HudEditorScreen;
+import dev.pawtism.client.hud.HudColorScreen;
 import dev.pawtism.client.ui.XpTheme;
 import java.util.List;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -26,11 +27,14 @@ public final class ModuleScreen extends Screen {
         search.setMaxLength(100); search.setValue(query); search.setHint(Component.literal("Search modules…"));
         search.setResponder(value -> { if (!query.equals(value)) { query = value; page = 0; rebuildWidgets(); } });
         int cy = 44;
+        int categoryStep = height < 300 ? 23 : 27;
         for (String group : ModuleCatalog.CATEGORIES) {
             Button button = addRenderableWidget(Button.builder(Component.literal(group), b -> { category = group; page = 0; rebuildWidgets(); })
                 .bounds(10, cy, 98, 21).build());
-            button.active = !group.equals(category); cy += 27;
+            button.active = !group.equals(category); cy += categoryStep;
         }
+        addRenderableWidget(Button.builder(Component.literal("HUD Colors"), b -> HudColorScreen.open(this))
+            .bounds(10, cy + 2, 98, 20).build());
         modules = ModuleCatalog.modules(category, query);
         int perPage = columns * rows;
         int pages = Math.max(1, (modules.size() + perPage - 1) / perPage);

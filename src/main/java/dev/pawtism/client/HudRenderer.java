@@ -16,6 +16,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import dev.pawtism.client.hud.HudWidgets;
+import dev.pawtism.client.hud.HudColors;
 import dev.pawtism.client.combat.CombatOptions;
 import dev.pawtism.client.combat.CombatModules;
 
@@ -24,8 +25,6 @@ public final class HudRenderer {
     private static final EquipmentSlot[] ARMOR = {
         EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET
     };
-    private static final int TEXT = 0xFFF2F2F7;
-    private static final int MUTED = 0xFFB8B8C6;
     private static boolean registered;
 
     private HudRenderer() {}
@@ -96,13 +95,13 @@ public final class HudRenderer {
             }
             int right = Math.min(graphics.guiWidth() - 4, px + Math.min(232, width + 12));
             int bottom = py + 8 + lines.size() * 12;
-            graphics.fill(px, py, right, bottom, 0xA014141D);
-            graphics.fill(px, py, px + 2, bottom, PawtismConfig.ACCENT.getIntegerValue());
+            graphics.fill(px, py, right, bottom, HudColors.background());
+            graphics.fill(px, py, px + 2, bottom, HudColors.accent());
             graphics.enableScissor(px + 4, py, right - 3, bottom);
             int y = py + 6;
             for (int i = 0; i < lines.size(); i++) {
                 int color = i == 0 && PawtismConfig.HUD.getBooleanValue()
-                    ? PawtismConfig.ACCENT.getIntegerValue() : TEXT;
+                    ? HudColors.accent() : HudColors.text();
                 graphics.text(client.font, lines.get(i), px + 6, y, color, true);
                 y += 12;
             }
@@ -117,16 +116,16 @@ public final class HudRenderer {
             if (stack.isEmpty()) {
                 continue;
             }
-            graphics.fill(x, y, x + 72, y + 19, 0xA014141D);
+            graphics.fill(x, y, x + 72, y + 19, HudColors.background());
             graphics.item(stack, x + 2, y + 1);
             graphics.itemDecorations(client.font, stack, x + 2, y + 1);
             if (stack.isDamageableItem()) {
                 int remaining = Math.max(0, stack.getMaxDamage() - stack.getDamageValue());
                 int percent = remaining * 100 / Math.max(1, stack.getMaxDamage());
-                int color = percent < 25 ? 0xFFFF7575 : percent < 50 ? 0xFFFFCF75 : TEXT;
+                int color = percent < 25 ? 0xFFFF7575 : percent < 50 ? 0xFFFFCF75 : HudColors.text();
                 graphics.text(client.font, percent + "%", x + 23, y + 5, color, true);
             } else {
-                graphics.text(client.font, "--", x + 23, y + 5, MUTED, true);
+                graphics.text(client.font, "--", x + 23, y + 5, HudColors.secondary(), true);
             }
             y += 20;
         }

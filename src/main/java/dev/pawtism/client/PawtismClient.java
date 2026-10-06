@@ -10,10 +10,11 @@ import org.lwjgl.glfw.GLFW;
 
 public final class PawtismClient implements ClientModInitializer {
     public static boolean zoomHeld;
-    public static final String VERSION = "1.3.0";
+    public static final String VERSION = "1.4.0";
     private static Boolean originalSprintMode;
     @Override public void onInitializeClient() {
         PawtismConfig.init();
+        dev.pawtism.client.discord.DiscordPresence.init();
         KeyMapping.Category category = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("pawtism", "client"));
         KeyMapping settings = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.pawtism.settings", GLFW.GLFW_KEY_RIGHT_SHIFT, category));
         KeyMapping zoom = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.pawtism.zoom", GLFW.GLFW_KEY_Z, category));

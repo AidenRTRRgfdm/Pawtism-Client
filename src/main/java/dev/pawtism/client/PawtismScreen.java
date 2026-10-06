@@ -45,6 +45,7 @@ public final class PawtismScreen extends GuiConfigsBase {
         if (modSwitchWidget != null) modSwitchWidget.setPosition(width - 155, xp ? 26 : 6);
         if (!xp) {
             super.drawScreenBackground(context, mouseX, mouseY);
+            drawDiscordStatus(context);
             return;
         }
         GuiGraphicsExtractor graphics = context.getGuiGraphics();
@@ -52,6 +53,13 @@ public final class PawtismScreen extends GuiConfigsBase {
         XpTheme.frame(graphics, font, 5, 3, width - 10, height - 6, "Pawtism Client: Settings", false);
         XpTheme.panel(graphics, 8, 40, width - 16, Math.max(24, height - 78));
         graphics.fill(9, 41, width - 9, Math.max(65, height - 39), XpTheme.content());
+        drawDiscordStatus(context);
+    }
+    private void drawDiscordStatus(GuiContext context) {
+        if (!options.contains(dev.pawtism.client.discord.DiscordOptions.RICH_PRESENCE)) return;
+        String message = dev.pawtism.client.discord.DiscordPresence.status().message();
+        context.getGuiGraphics().text(font, font.plainSubstrByWidth(message, Math.max(0, width - 24)),
+            12, height - 25, XpTheme.enabled() ? XpTheme.text() : 0xFFF2F2F7, false);
     }
     @Override protected void drawTitle(GuiContext context, int mouseX, int mouseY, float delta) {
         if (!XpTheme.enabled()) super.drawTitle(context, mouseX, mouseY, delta);
