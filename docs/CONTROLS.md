@@ -24,7 +24,7 @@ Open Pawtism with **Right Shift**, or use its configuration button in **Mod Menu
 
 ## Desktop and theme
 
-The **XP interface** is enabled by default in version 1.4.0.
+The **XP interface** is enabled by default in version 1.4.1.
 
 - **Launch Minecraft** opens Minecraft's singleplayer menu.
 - **Multiplayer** opens Minecraft's multiplayer menu.
@@ -60,7 +60,9 @@ Open **HUD Colors** from the module browser or HUD Editor. Edit the existing **A
 
 ## Discord Rich Presence
 
-Choose **UI → Module settings**, enter **Discord application ID**, then turn on **Discord Rich Presence** with the Discord desktop app running. The UI toggle also appears in the module browser and can be found by searching for Discord. This feature is off by default. See [Discord setup](DISCORD_RPC.md).
+Start the Discord desktop app, then press **Right Shift → UI** and turn on **Discord Rich Presence**. You can also find the toggle by searching for Discord in the module browser. It is off by default, and installing an update does not enable it.
+
+Leave **Discord application ID** blank under **UI → Module settings** to use Pawtism's official application. Enter another public ID only if you want a custom application. Clear the field to return to Pawtism; saved custom IDs are preserved. See [Discord setup](DISCORD_RPC.md).
 
 ## Waypoints
 

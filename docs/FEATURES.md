@@ -1,6 +1,6 @@
 # Feature reference
 
-Pawtism Client **1.4.0** for Minecraft **26.2** has **52 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
+Pawtism Client **1.4.1** for Minecraft **26.2** has **52 feature toggles** across five categories and **22 movable HUD panels**. Open the browser with **Right Shift** to search, enable or disable modules.
 
 ## Core (11 features)
 
@@ -111,7 +111,9 @@ Open **HUD Colors** in the module browser or HUD Editor. The existing **Accent c
 ## Discord Rich Presence
 
 - Optional **Discord Rich Presence** toggle in UI, off by default.
-- Configure a public **Discord application ID** through UI Module settings.
+- Leave **Discord application ID** blank to use Pawtism's official application. No ID entry is needed.
+- A public application ID entered through **UI → Module settings** overrides the official application; clear it to switch back. Existing custom IDs are preserved.
+- Installing or updating Pawtism does not enable Rich Presence.
 - The Discord desktop app must be running. No login credentials are stored.
 - Shows Pawtism Client, Minecraft 26.2, a session timer and Main menu, Singleplayer or Multiplayer.
 - Server addresses, world names, coordinates, player names and chat are excluded.
