@@ -197,7 +197,7 @@ final class DiscordRpcService implements AutoCloseable {
     }
 
     private static DiscordStatus inactive(PresenceData data) {
-        return data.enabled() ? new DiscordStatus(NEEDS_APPLICATION_ID, "Enter your own numeric Discord application ID.")
+        return data.enabled() ? new DiscordStatus(NEEDS_APPLICATION_ID, "Invalid application ID. Clear it to use Pawtism's ID.")
             : new DiscordStatus(DISABLED, "Discord Rich Presence is off.");
     }
 }

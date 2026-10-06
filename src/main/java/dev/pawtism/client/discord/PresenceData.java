@@ -18,6 +18,12 @@ record PresenceData(boolean enabled, String applicationId, ScreenState state) {
 
     static PresenceData disabled() { return new PresenceData(false, "", ScreenState.MAIN_MENU); }
 
+    /** Saved blank IDs use the current application default; nonblank overrides keep their meaning. */
+    static String resolveApplicationId(String configured, String fallback) {
+        String override = configured == null ? "" : configured.strip();
+        return override.isEmpty() ? (fallback == null ? "" : fallback.strip()) : override;
+    }
+
     static boolean validApplicationId(String value) {
         if (value == null || !value.matches("[1-9][0-9]{16,19}")) return false;
         return new BigInteger(value).bitLength() <= 64;

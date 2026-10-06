@@ -22,7 +22,8 @@ public final class DiscordPresence {
         PresenceData.ScreenState state = client.level == null ? PresenceData.ScreenState.MAIN_MENU
             : client.isLocalServer() ? PresenceData.ScreenState.SINGLEPLAYER : PresenceData.ScreenState.MULTIPLAYER;
         SERVICE.submit(new PresenceData(DiscordOptions.RICH_PRESENCE.getBooleanValue(),
-            DiscordOptions.APPLICATION_ID.getStringValue(), state));
+            PresenceData.resolveApplicationId(DiscordOptions.APPLICATION_ID.getStringValue(),
+                DiscordOptions.APPLICATION_ID.getDefaultStringValue()), state));
     }
 
     public static DiscordStatus status() { return SERVICE.status(); }
