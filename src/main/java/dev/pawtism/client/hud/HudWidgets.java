@@ -79,11 +79,11 @@ public final class HudWidgets {
     public static void panel(GuiGraphicsExtractor g, int x, int y, int width, List<String> lines) {
         if (lines.isEmpty()) return;
         int height = lines.size() * 11 + 8;
-        g.fill(x, y, x + width, y + height, 0xa014141d);
-        g.fill(x, y, x + 2, y + height, PawtismConfig.ACCENT.getIntegerValue());
+        g.fill(x, y, x + width, y + height, HudColors.background());
+        g.fill(x, y, x + 2, y + height, HudColors.accent());
         Minecraft mc = Minecraft.getInstance();
         g.enableScissor(x + 4, y, x + width - 3, y + height);
-        for (int i = 0; i < lines.size(); i++) g.text(mc.font, lines.get(i), x + 6, y + 4 + i * 11, 0xfff2f2f7, true);
+        for (int i = 0; i < lines.size(); i++) g.text(mc.font, lines.get(i), x + 6, y + 4 + i * 11, HudColors.text(), true);
         g.disableScissor();
     }
 }

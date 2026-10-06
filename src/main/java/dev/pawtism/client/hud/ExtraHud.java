@@ -1,6 +1,5 @@
 package dev.pawtism.client.hud;
 
-import dev.pawtism.client.PawtismConfig;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,8 +20,6 @@ import net.minecraft.server.packs.repository.PackSource;
 
 /** Original Lunar/Feather-style information widgets, backed by native Minecraft state. */
 public final class ExtraHud {
-    private static final int TEXT = 0xFFF2F2F7;
-    private static final int BACKGROUND = 0xA014141D;
     private static final DateTimeFormatter CLOCK_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static final double[] FRAME_TIMES = new double[90];
     private static int frameCursor;
@@ -184,14 +181,14 @@ public final class ExtraHud {
     private static void inventory(GuiGraphicsExtractor g, int x, int y) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
-        g.fill(x, y, x + 170, y + 78, BACKGROUND);
-        g.fill(x, y, x + 2, y + 78, PawtismConfig.ACCENT.getIntegerValue());
-        g.text(mc.font, "Inventory", x + 6, y + 4, PawtismConfig.ACCENT.getIntegerValue(), true);
+        g.fill(x, y, x + 170, y + 78, HudColors.background());
+        g.fill(x, y, x + 2, y + 78, HudColors.accent());
+        g.text(mc.font, "Inventory", x + 6, y + 4, HudColors.accent(), true);
         renderedInventoryItems = 0;
         for (int slot = 0; slot < 27; slot++) {
             int sx = x + 4 + (slot % 9) * 18;
             int sy = y + 18 + (slot / 9) * 18;
-            g.fill(sx, sy, sx + 17, sy + 17, 0x503A3345);
+            g.fill(sx, sy, sx + 17, sy + 17, HudColors.surface(0x503A3345));
             ItemStack item = mc.player.getInventory().getItem(slot + 9);
             if (!item.isEmpty()) {
                 renderedInventoryItems++;
@@ -278,20 +275,20 @@ public final class ExtraHud {
         FRAME_TIMES[frameCursor] = milliseconds;
         frameCursor = (frameCursor + 1) % FRAME_TIMES.length;
         frameCount = Math.min(FRAME_TIMES.length, frameCount + 1);
-        g.fill(x, y, x + 148, y + 58, BACKGROUND);
-        g.fill(x, y, x + 2, y + 58, PawtismConfig.ACCENT.getIntegerValue());
+        g.fill(x, y, x + 148, y + 58, HudColors.background());
+        g.fill(x, y, x + 2, y + 58, HudColors.accent());
         String label = mc.getFps() + " FPS · " + fixed(milliseconds, 1) + " ms";
         RENDERED_LINES.put("frame_graph", List.of(label));
-        g.text(mc.font, label, x + 6, y + 4, TEXT, true);
+        g.text(mc.font, label, x + 6, y + 4, HudColors.text(), true);
         int left = x + 6;
         int bottom = y + 52;
-        g.horizontalLine(left, x + 140, bottom, 0xFF65596E);
+        g.horizontalLine(left, x + 140, bottom, HudColors.surface(0xFF65596E));
         for (int i = 0; i < frameCount; i++) {
             int index = (frameCursor - frameCount + i + FRAME_TIMES.length) % FRAME_TIMES.length;
             double duration = FRAME_TIMES[index];
             int height = (int) Math.max(1, Math.min(30, duration / 33.333 * 30));
             int px = left + i * 134 / FRAME_TIMES.length;
-            int color = duration > 33.333 ? 0xFFFF7575 : duration > 16.667 ? 0xFFFFCF75 : PawtismConfig.ACCENT.getIntegerValue();
+            int color = duration > 33.333 ? 0xFFFF7575 : duration > 16.667 ? 0xFFFFCF75 : HudColors.accent();
             g.fill(px, bottom - height, px + 1, bottom, color);
         }
     }

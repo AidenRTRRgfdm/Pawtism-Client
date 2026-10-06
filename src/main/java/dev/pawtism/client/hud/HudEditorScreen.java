@@ -17,8 +17,9 @@ public final class HudEditorScreen extends Screen {
     private boolean dragging;
     public HudEditorScreen(Screen parent) { super(Component.literal("Pawtism: HUD Editor")); this.parent = parent; }
     @Override protected void init() {
-        addRenderableWidget(Button.builder(Component.literal("Reset layout"), b -> HudWidgets.reset()).bounds(width / 2 - 104, height - 27, 100, 20).build());
-        addRenderableWidget(Button.builder(Component.literal("Save & Done"), b -> onClose()).bounds(width / 2 + 4, height - 27, 100, 20).build());
+        addRenderableWidget(Button.builder(Component.literal("Reset layout"), b -> HudWidgets.reset()).bounds(width / 2 - 156, height - 27, 100, 20).build());
+        addRenderableWidget(Button.builder(Component.literal("HUD Colors"), b -> HudColorScreen.open(this)).bounds(width / 2 - 52, height - 27, 100, 20).build());
+        addRenderableWidget(Button.builder(Component.literal("Save & Done"), b -> onClose()).bounds(width / 2 + 56, height - 27, 100, 20).build());
     }
     @Override public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {}
     @Override public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {
