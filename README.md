@@ -2,7 +2,7 @@
 
 A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, waypoints and visual quality-of-life features.
 
-**Version 1.4.0** adds HUD text and background colors and optional **Discord Rich Presence**. The existing accent picker is reused. Pawtism has **52 feature toggles**, a searchable module browser and **22 movable HUD panels**.
+**Version 1.4.1** includes Pawtism's official Discord application, so Rich Presence works without entering an application ID. It stays off until you enable it. HUD colors, the XP interface and Dark mode remain available, with **52 feature toggles** and **22 movable HUD panels**.
 
 ## Screenshots
 
@@ -16,9 +16,9 @@ A simple Fabric client for Minecraft **26.2**, with zoom, configurable HUDs, way
 
 This repository includes Java source and precompiled downloads. Use the compiled release to install.
 
-- [Pawtism Client 1.4.0 JAR](downloads/pawtism-client-1.4.0+26.2.jar)
-- [Install bundle with all four libraries](downloads/PawtismClient-1.4.0-26.2.zip)
-- [Source archive](downloads/PawtismClient-1.4.0-26.2-source.zip)
+- [Pawtism Client 1.4.1 JAR](downloads/pawtism-client-1.4.1+26.2.jar)
+- [Install bundle with all four libraries](downloads/PawtismClient-1.4.1-26.2.zip)
+- [Source archive](downloads/PawtismClient-1.4.1-26.2-source.zip)
 - [GitHub releases](https://github.com/AidenRTRRgfdm/Pawtism-Client/releases)
 
 The install bundle contains Pawtism and its four required libraries. Checksums are included with the downloads.
@@ -43,7 +43,7 @@ Pawtism runs on your client. Servers do not need to install it.
 
 ### Required libraries
 
-These versions match Pawtism 1.4.0 for Minecraft 26.2.
+These versions match Pawtism 1.4.1 for Minecraft 26.2.
 
 | Library | Version |
 | --- | --- |
@@ -138,13 +138,15 @@ Use the native color picker to edit HSV, RGB, hex and alpha values. The preview 
 
 ## Discord Rich Presence
 
-Pawtism can show **Main menu**, **Singleplayer** or **Multiplayer** in the Discord desktop app, with a session timer. The toggle is off by default.
+Pawtism can show **Main menu**, **Singleplayer** or **Multiplayer** in the Discord desktop app, with a session timer. The feature is off by default.
 
-1. Open **UI → Module settings**.
-2. Enter a Discord application ID in **Discord application ID**.
-3. Run the Discord desktop app and turn on **Discord Rich Presence**.
+1. Start the Discord desktop app.
+2. Press **Right Shift** and choose **UI**.
+3. Turn on **Discord Rich Presence**.
 
-The application ID is public. No account token, bot token or client secret is needed. Presence excludes server addresses, world names, coordinates and chat. Disabling the module or closing Minecraft clears its activity. See the [Discord setup guide](docs/DISCORD_RPC.md).
+Leave **Discord application ID** blank to use Pawtism's official application. You can enter a different public application ID under **UI → Module settings**. Clear that field to return to Pawtism's application; existing custom IDs are preserved when you upgrade.
+
+No account token, bot token or client secret is needed. Presence excludes server addresses, world names, coordinates and chat. Disabling the module or closing Minecraft clears its activity. See the [Discord setup guide](docs/DISCORD_RPC.md).
 
 ## Upgrading and saved settings
 

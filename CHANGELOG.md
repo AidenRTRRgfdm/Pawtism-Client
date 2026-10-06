@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.1 for Minecraft 26.2
+
+### Pawtism Discord application
+
+- Added Pawtism's official application ID for Discord Rich Presence.
+- A blank **Discord application ID** now uses the official Pawtism application.
+- Kept the application ID setting as an optional custom override. Clear it to use Pawtism again.
+- Kept Rich Presence off by default. Updating the client does not enable it.
+- Added an original window-and-paw application icon drawn from colored shapes.
+- Updated the setup guide so the Discord desktop app and the UI toggle are all that is needed for the official application.
+
+Pawtism still has **52 feature toggles** and **22 movable HUD panels**. HUD colors, library versions and saved custom IDs are unchanged.
+
 ## 1.4.0
 
 ### HUD colors

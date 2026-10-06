@@ -1,13 +1,14 @@
-Pawtism Client 1.4.0 for Minecraft 26.2: release verification
+Pawtism Client 1.4.1 for Minecraft 26.2: release verification
 
 Release build and all six native client checks: passed.
 Runtime requirements: Minecraft 26.2, Java 25, Fabric Loader 0.19.5 or later.
 Delivered features: 52 original feature toggles and 22 movable HUD panels.
 
-88 unit tests passed with zero failures, errors, or skips:
+91 unit tests passed with zero failures, errors, or skips:
 - dev.pawtism.client.WaypointTest: 7
 - dev.pawtism.client.ZoomMathTest: 12
 - dev.pawtism.client.combat.CombatTrackingTest: 6
+- dev.pawtism.client.discord.DiscordApplicationIdTest: 3
 - dev.pawtism.client.discord.DiscordIpcConnectorTest: 4
 - dev.pawtism.client.discord.DiscordProtocolTest: 8
 - dev.pawtism.client.discord.DiscordRpcServiceTest: 12
@@ -30,10 +31,12 @@ Additional XP coverage in Dark mode: actual module toggle, saved reload and worl
 - HUD colors: actual Modules and HUD Editor navigation, native HEX and numeric alpha keyboard input, live picker previews, individual and full resets, saved configuration reload, and real drawing states of all 22 HUD panels and the custom crosshair. Partial and zero background opacity were checked with light XP at 1280×800 and dark XP at 640×480, both at GUI scale 2.
 - Optional Discord Rich Presence: protocol framing, handshake and acknowledgement handling, generic presence payloads, worker lifecycle, bounded retries, endpoint discovery and Unix sockets were checked with isolated fixtures. Windows named-pipe framing was checked with a substitute pipe. The native client remained disabled without starting an IPC worker.
 
-Native preview collection: 135 current PNG snapshots.
-Visual review: Reviewed the live HUD color preview, native HSV picker, transparent gameplay panels and compact module navigation at both tested window sizes. Labels and controls remain readable and inside the window.
+Discord application identity: public default ID 1556850603345576057; the documented icon is the unmodified original 512×512 window-and-paw geometry. Configuration, compiled identity and icon bytes were checked together. Portal creation, asset upload and a live Discord activity are separate from these automated checks.
 
-Artifact checks: version 1.4.0+26.2; all 46 registered client mixin classes present; test fixtures excluded; client license present; archive CRC checks passed. The four unmodified library JARs match the recorded SHA-512 and SHA-1 hashes.
-Client SHA-256: af6012cfd16cf6bcd55b90d5a2e566bc601da1bfd9128f70d3996af093653491
+Native preview collection: 135 current PNG snapshots.
+Visual review: The XP desktop shows version 1.4.1 and readable controls. HUD color previews retain their saved colors. A live macOS Discord Canary check accepted Main menu and Singleplayer activity through the delivered IPC service; disabling sent a clear command and closed the connection.
+
+Artifact checks: version 1.4.1+26.2; all 46 registered client mixin classes present; test fixtures excluded; client license present; archive CRC checks passed. The four unmodified library JARs match the recorded SHA-512 and SHA-1 hashes.
+Client SHA-256: 0e8c3ace9614dc63e9533ee2e6d2abfe1531e18328de6198d583251c31c227f2
 
 Practical limits: live multiplayer and unrelated mod combinations were not tested. Multiplayer saturation and hit distance are estimates. The video preset has no fixed FPS claim. Voxel layers support standard 64×64 skins. Reconnect cancellation was checked without connecting to a server. Automated checks did not connect to a real Discord account or exercise Windows native pipe calls on this macOS host.
