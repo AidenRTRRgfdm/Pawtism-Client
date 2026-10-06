@@ -1,7 +1,7 @@
 package dev.pawtism.client.combat;
 
-import dev.pawtism.client.PawtismConfig;
 import dev.pawtism.client.hud.HudWidgets;
+import dev.pawtism.client.hud.HudColors;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -113,9 +113,9 @@ public final class CombatModules {
         if (mc.player == null) return;
         float strength = Math.clamp(mc.player.getAttackStrengthScale(0.5f), 0, 1);
         HudWidgets.panel(g, x, y, 138, List.of("Attack charge: " + Math.round(strength * 100) + "%"));
-        g.fill(x + 5, y + 22, x + 133, y + 26, 0x993d3547);
+        g.fill(x + 5, y + 22, x + 133, y + 26, HudColors.surface(0x993d3547));
         g.fill(x + 5, y + 22, x + 5 + Math.round(strength * 128), y + 26,
-                strength >= 0.99f ? PawtismConfig.ACCENT.getIntegerValue() : 0xffb8b8c6);
+                strength >= 0.99f ? HudColors.accent() : HudColors.secondary());
     }
 
     private static void keys(GuiGraphicsExtractor g, int x, int y) {
@@ -131,8 +131,8 @@ public final class CombatModules {
 
     private static void key(GuiGraphicsExtractor g, int x, int y, int width, String label, boolean pressed) {
         Minecraft mc = Minecraft.getInstance();
-        g.fill(x, y, x + width, y + 20, pressed ? PawtismConfig.ACCENT.getIntegerValue() : 0xa014141d);
+        g.fill(x, y, x + width, y + 20, pressed ? HudColors.accent() : HudColors.background());
         g.text(mc.font, label, x + (width - mc.font.width(label)) / 2, y + 6,
-                pressed ? 0xff16131e : 0xfff2f2f7, true);
+                pressed ? HudColors.pressedText() : HudColors.text(), true);
     }
 }
